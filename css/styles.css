@@ -1,0 +1,27 @@
+.body-background {
+	background: url(/images/fondo-pizarra.jpg);
+	background-size: cover;
+	height: 900px;
+	
+}
+
+.titulo-color {
+	color: #e6b846;
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 22px;
+}
+
+.desc-color {
+	color: #dfcb93;
+
+}
+
+.texto-producto {
+	font-family: 'Amiko', sans-serif;
+	color: #98711b;
+}
+
+.texto-precio {
+	color: #e6b846;
+	font-family: 'Anton', sans-serif;
+}

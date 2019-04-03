@@ -21,18 +21,20 @@
                 <div class="col"></div>
             </div>
 
-            <div class="row" style="margin:  0px">
+            <div class="row">
                 <div class="col-12 text-center titulo-color"><p>Galactic dishes</p></div>
                 <div class="col text-center texto-producto">
                     <h3>Los mejores platos de nuñez!</h3>
                 </div>
             </div>
-            <div class="row justify-content-around" >
+
+
+            <div class="row justify-content-around">
                 <div class="col-lg-3  col-sm-2 fondo">
-                    <h1 class="desc-color">BURGUERS</h1>
-                    <table>
-                        <tr>
-                            <td class="texto-producto">BEEF MEAT </td>
+                    <h1 class="desc-color imagen-mostrar"> <img src="images/hamburguesa-galactica.jpg" class="prueba">BURGUERS</h1>
+                    <table class="productos">
+                        <tr data-toggle="modal" data-target="#beefMeat">
+                            <td class="texto-producto ">BEEF MEAT</td>
                             <td class="texto-precio">$5.25</td>
                         </tr>
                         <tr>
@@ -69,7 +71,7 @@
                     </table>
                 </div>
 
-                <div class="col-lg-3 col-sm-2 fondo">  
+                <div class="col-lg-3 col-sm-2 fondo">
                     <h1 class="desc-color">DRINKS</h1>
                     <table>
                         <tr>
@@ -103,6 +105,31 @@
                     </table>
                     <div class="row">
                         <img src="images/hamburguesa-galactica.jpg" class="hamburguesa-imagen">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade modal-fondo" id="beefMeat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">BEEF MEAT</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tr>
+                                    <td>100% Carne vacuna</td>
+                                </tr>
+                                <tr>
+                                    <td>Queso chedar</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

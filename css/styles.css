@@ -40,3 +40,29 @@
     border-radius: 10px;
     display: inline-table;
 }
+
+
+.prueba {
+    position: absolute;
+    left: 220px;
+    display: none;
+    width: 50%;
+    cursor: pointer;
+}
+
+.imagen-mostrar:hover img {
+    display: block;
+}
+
+.imagen-mostrar:hover {
+    cursor: pointer;
+}
+
+.productos:hover td{ 
+    cursor: pointer;
+}
+
+.modal-fondo {
+    background: rgb(0, 0, 0, 0.545);
+    border-radius: 10px;
+}

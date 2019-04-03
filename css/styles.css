@@ -1,7 +1,7 @@
+
 .body-background {
-	background: url(../images/fondo-galactico.jpg);
-	background-size: cover;
-	height: 900px;
+    background: url(../images/fondo-galactico.jpg) no-repeat fixed;
+    background-size: cover;
 }
 
 .titulo-color {
@@ -33,4 +33,10 @@
     padding: 40px 0 0 20px;
     width : 350px ; 
     height: 200px ;
+}
+
+.fondo{
+    background: rgb(0, 0, 0, 0.545);
+    border-radius: 10px;
+    display: inline-table;
 }

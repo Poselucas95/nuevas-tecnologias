@@ -2,6 +2,7 @@
 .body-background {
     background: url(../images/fondo-galactico.jpg) no-repeat fixed;
     background-size: cover;
+    height: 885px;
 }
 
 .titulo-color {
@@ -62,7 +63,11 @@
     cursor: pointer;
 }
 
-.modal-fondo {
-    background: rgb(0, 0, 0, 0.545);
-    border-radius: 10px;
+.modal-content {
+    background-color: rgb(122, 28, 195, 0.90);
+    color: #e6b846;
+}
+
+.modal-backdrop { 
+    background-color: rgb(255, 255, 255, 0.10);
 }

@@ -1,0 +1,77 @@
+
+.body-background {
+    background: url(../images/fondo-galactico.jpg) no-repeat fixed;
+    background-size: cover;
+    height: 885px;
+}
+
+.titulo-color {
+	color: #e6b846;
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 60px;
+}
+
+.desc-color {
+	color: #dfcb93;
+    padding: 15px 0;
+}
+
+.texto-producto {
+    font-family: 'Amiko', sans-serif;
+    color: #98711b;
+    padding: 0 40px 0 0;
+    font-weight: 700;
+    font-size: 20px;
+}
+.texto-producto:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.texto-precio {
+	color: #e6b846;
+	font-family: 'Anton', sans-serif;
+    font-size: 30px;
+}
+
+.hamburguesa-imagen {
+    padding: 20px 20px;
+    width : 350px ; 
+    height: 200px ;
+}
+
+.fondo{
+    background: rgb(0, 0, 0, 0.545);
+    border-radius: 10px;
+    display: inline-table;
+}
+
+
+.prueba {
+    position: absolute;
+    left: 220px;
+    display: none;
+    width: 50%;
+}
+
+.imagen-mostrar:hover img {
+    display: block;
+}
+
+.imagen-mostrar:hover {
+    cursor: default;
+    text-decoration: underline;
+}
+
+.productos:hover td{ 
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: rgb(122, 28, 195, 0.90);
+    color: #e6b846;
+}
+
+.modal-backdrop { 
+    background-color: rgb(255, 255, 255, 0.10);
+}

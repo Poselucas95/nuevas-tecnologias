@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carta Bar", "Carta Bar\Carta Bar.csproj", "{0706CA70-3080-433A-9FDD-B4F13CAA0ED6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0706CA70-3080-433A-9FDD-B4F13CAA0ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0706CA70-3080-433A-9FDD-B4F13CAA0ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0706CA70-3080-433A-9FDD-B4F13CAA0ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0706CA70-3080-433A-9FDD-B4F13CAA0ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32590F66-62B6-4748-AD89-E3BBC0CB8269}
+	EndGlobalSection
+EndGlobal

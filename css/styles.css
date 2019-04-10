@@ -1,6 +1,6 @@
 
 .body-background {
-    background: url(../images/fondo-galactico.jpg) no-repeat fixed;
+   # background: url(../images/fondo-galactico.jpg) no-repeat fixed;
     background-size: cover;
     height: 885px;
 }
@@ -43,7 +43,7 @@
 }
 
 
-.prueba {
+.preview {
     position: absolute;
     left: 220px;
     display: none;
@@ -70,4 +70,8 @@
 
 .modal-backdrop { 
     background-color: rgb(255, 255, 255, 0.10);
+}
+
+#video {
+    pointer-events: none;
 }

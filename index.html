@@ -15,6 +15,9 @@
     <script src="path/to/parallax.js"></script>
 </head>
 <body>
+    <div style="position: fixed; z-index: -99; width: 100%; height: 100%" id="video">
+        <iframe frameborder="0" height="100%" width="100%" src="https://www.youtube.com/embed/Xjs6fnpPWy4?start=3430&autoplay=1&controls=0&showinfo=0&autohide=0&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
     <div class="container-fluid body-background">
         <div id="scene">
             <div class="row">
@@ -31,7 +34,7 @@
 
             <div class="row justify-content-around">
                 <div class="col-lg-3  col-sm-2 fondo">
-                    <h1 class="desc-color imagen-mostrar"> <img src="images/hamburguesa-galactica.jpg" class="prueba">BURGUERS</h1>
+                    <h1 class="desc-color imagen-mostrar"> <img src="images/hamburguesa.jpg" class="preview">BURGUERS</h1>
                     <table class="productos">
                         <tr data-toggle="modal" data-target="#beefMeat">
                             <td class="texto-producto ">BEEF MEAT</td>
@@ -50,7 +53,7 @@
                             <td class="texto-precio">$40.25</td>
                         </tr>
                     </table>
-                    <h1 class="desc-color">PANCHOS</h1>
+                    <h1 class="desc-color imagen-mostrar">  <img src="images/panchito.jpg" class="preview">PANCHOS</h1>
                     <table>
                         <tr>
                             <td class="texto-producto">NORMAL </td>
@@ -72,7 +75,7 @@
                 </div>
 
                 <div class="col-lg-3 col-sm-2 fondo">
-                    <h1 class="desc-color">DRINKS</h1>
+                    <h1 class="desc-color imagen-mostrar"> <img src="images/drink.jpg" class="preview">DRINKS</h1>
                     <table>
                         <tr>
                             <td class="texto-producto" data-toggle="tooltip" title="k ase">COCA-COLA </td>

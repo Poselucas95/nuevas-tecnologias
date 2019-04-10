@@ -16,12 +16,19 @@
     padding: 15px 0;
 }
 
+#description-place {
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 35px;
+    color: rebeccapurple;
+    border-color: white;
+}
+
 .texto-producto {
-	font-family: 'Amiko', sans-serif;
-	color: #98711b;
+    font-family: 'Amiko', sans-serif;
+    color: #98711b;
     padding: 0 40px 0 0;
-    font-weight:700;
-    font-size:20px;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .texto-precio {
@@ -72,6 +79,3 @@
     background-color: rgb(255, 255, 255, 0.10);
 }
 
-#video {
-    pointer-events: none;
-}

@@ -1,10 +1,10 @@
 ﻿function init() {
-    bindearEventoClickSubmit;
-    bindearEventoTerminosYCondiciones;
+    bindearEventoClickSubmit();
+    bindearEventoTerminosYCondiciones();
 }
 
 function bindearEventoClickSubmit() {
-    $(".boton-submit").click(validarCampos);
+    $(".boton-submit").on('click', validarCampos);
     validarTerminos;
 }
 
@@ -17,10 +17,11 @@ function validarCampos() {
 }
 
 function validarDniIngresado() {
-    var DNI = $("#inputDni").val();
+    var DNI = document.getElementById("inputDni").value;
     if (DNI.length != 8) {
         alert("El DNI debe tener 8 caracteres");
     }
+    event.cancelBubble = true;
 }
 
 function validarTerminos() {

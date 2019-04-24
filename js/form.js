@@ -1,11 +1,10 @@
 ﻿function init() {
-    bindearEventoClickSubmit;
-    bindearEventoTerminosYCondiciones;
+    bindearEventoClickSubmit();
+    bindearEventoTerminosYCondiciones();
 }
 
 function bindearEventoClickSubmit() {
-    $(".boton-submit").click(validarCampos);
-    validarTerminos;
+    $(".boton-submit").on('click', validarCampos);
 }
 
 function bindearEventoTerminosYCondiciones() {
@@ -14,18 +13,21 @@ function bindearEventoTerminosYCondiciones() {
 
 function validarCampos() {
     validarDniIngresado();
+    validarTerminos();
 }
 
 function validarDniIngresado() {
-    var DNI = $("#inputDni").val();
+    var DNI = document.getElementById("inputDni").value;
     if (DNI.length != 8) {
         alert("El DNI debe tener 8 caracteres");
     }
+    event.cancelBubble = true;
 }
 
+
+
 function validarTerminos() {
-    var terminos = $("#TYC").val();
-    if (terminos === ':checked') {
+    if (!document.getElementById("TYC").checked) {
         alert("Debe aceptar los términos y condiciones.");
     }
 }
@@ -45,6 +47,29 @@ document.getElementById("email").addEventListener("input", function () {
         email.classList.add("is-invalid");
     }
 });
+
+document.getElementById("inputDni").addEventListener("input", function () {
+    var dni = document.getElementById("inputDni");
+    if (dni.value.length > 8 || dni.value.length < 7) {
+        dni.classList.remove("is-valid");
+        dni.classList.add("is-invalid");
+    } else {
+        dni.classList.remove("is-invalid");
+        dni.classList.add("is-valid");
+    }
+
+})
+
+function validarFormulario() {
+    if (document.getElementById("email").classList.contains("is-invalid")) {
+        alert("Email incorrecto");
+        event.preventDefault();
+    }
+
+}
+
+
+
 
 $(document).ready(init); 
 

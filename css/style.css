@@ -1,0 +1,17 @@
+﻿h1 {
+text-align:center;
+}
+
+form {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+#modalTerminos {
+    display:  none;
+}

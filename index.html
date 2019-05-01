@@ -8,96 +8,96 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/form.js"></script>
+
 </head>
 <body>
     <div class="container">
-     <div class="row">
-         
-      <div class="col-lg-6 offset-lg-3">
-          <h1>Bienvenido a vuestro sitio!</h1>
-          <form>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                      <label>Nombre</label>
-                      <input type="text" class="form-control nombre" placeholder="Emilio" required>
-                  </div>
-                  <div class="form-group col-md-6">
-                      <label>Apellido</label>
-                      <input type="text" class="form-control" placeholder="Ramirez" required>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <label for="inputDni">DNI <span>*</span></label>
-                  <input type="number" class="form-control" id="inputDni" required>
-              </div>
-              <div class="form-group">
-                  <label for="email">Email *</label>
-                  <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com" required>
-              </div>
-              <div class="form-row">
-                  <div class="form-group col-lg-12">
-                      <label for="inputProv">Provincia *</label>
-                      <select id="inputProv" class="form-control">
-                          <option selected>Elegir...</option>
-                          <option>Buenos Aires</option>
-                          <option>Santa Fe</option>
-                          <option>La Rioja</option>
-                          <option>Cordoba</option>
-                      </select>
-                  </div>
-                  <div class="form-group col-lg-12">
-                      <label for="inputCiudad">Ciudad</label>
-                      <select id="inputCiudad" class="form-control">
-                          <option selected>Elegir...</option>
-                          <option>Nuñez</option>
-                          <option>Belgrano</option>
-                          <option>Chacabuco</option>
-                          <option>Victoria</option>
-                      </select>
-                  </div>
-                  <div class="form-group col-lg-12">
-                      <label for="inputNumeroTelefonico">Número telefónico</label>
-                      <input type="number" class="form-control" id="inputNumeroTelefonico">
-                  </div>
+        <div class="row">
 
-              </div>
-              <div class="form-group">
-                  <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="TYC">
-                      <label class="form-check-label texto-terminos" for="gridCheck">
-                          Aceptar los términos y condiciones
-                      </label>
-                  </div>
-              </div>
-              <button type="submit" onclick="validarFormulario();" class="btn btn-primary boton-submit">Enviar</button>
-              
+            <div class="col-lg-6 offset-lg-3">
+                <h1>Formulario de contacto</h1>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control nombre" placeholder="Emilio" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control" placeholder="Ramirez" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDni">DNI <span>*</span></label>
+                        <input type="number" class="form-control" id="inputDni" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-lg-12">
+                            <label for="inputProv">Provincia *</label>
+                            <select id="inputProv" class="form-control">
+                                <option selected>Elegir...</option>
+                                <option>Buenos Aires</option>
+                                <option>Santa Fe</option>
+                                <option>La Rioja</option>
+                                <option>Cordoba</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label for="inputCiudad">Ciudad</label>
+                            <select id="inputCiudad" class="form-control">
+                                <option selected>Elegir...</option>
+                                <option>Nuñez</option>
+                                <option>Belgrano</option>
+                                <option>Chacabuco</option>
+                                <option>Victoria</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label for="inputNumeroTelefonico">Número telefónico</label>
+                            <input type="number" class="form-control" id="inputNumeroTelefonico">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="TYC">
+                            <label class="form-check-label texto-terminos" for="gridCheck">
+                                Aceptar los términos y condiciones
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" onclick="validarFormulario();" class="btn btn-primary boton-submit">Enviar</button>
 
 
-              <div id="modalTerminos" tabindex="-1">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                              </button>
-                          </div>
-                          <div class="modal-body">
-                              ...
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
 
-          </form>
-          </div>
-         </div>
-     </div>
+                    <div id="modalTerminos" tabindex="-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
-
+<script src="js/script.js"></script>
 </html>

@@ -1,29 +1,10 @@
 ﻿function init() {
     bindearEventoClickSubmit();
-    bindearEventoTerminosYCondiciones();
 }
 
 function bindearEventoClickSubmit() {
     $(".boton-submit").on('click', validarCampos);
 }
-
-function bindearEventoTerminosYCondiciones() {
-    $(".texto-terminos").click(mostrarTerminos);
-}
-
-
-
-function validarTerminos() {
-    if (!document.getElementById("TYC").checked) {
-        alert("Debe aceptar los términos y condiciones.");
-    }
-}
-
-function mostrarTerminos() {
-    $("#modalTerminos").css('display', 'inline-block');
-}
-
-
 
 //Validación del nombre en linea
 document.getElementById("inputNombre").addEventListener("input", function () {
@@ -71,6 +52,7 @@ function validarFormulario() {
     var inputDni = document.getElementById("inputDni");
     var inputNombre = document.getElementById("inputNombre");
     var inputApellido = document.getElementById("inputApellido");
+    var inputTyc = document.getElementByClass("form-check-input");
 
     //Validación del Email en caso de ser vacio o poseer la clase "is-invalid"(bootstrap)
     if (inputEmail.classList.contains("is-invalid") || inputEmail.value.length < 1) {
@@ -120,6 +102,11 @@ function validarFormulario() {
         document.querySelector(".errorNombreApellido").parentNode.removeChild(document.querySelector(".errorNombreApellido"));
     }
 
+    if (!inputTyc.checked) {
+        crearAlertaError("errorTyc", checTyc, null);
+    } else {
+        document.querySelector(".errorNombreApellido").parentNode.removeChild(document.querySelector(".errorNombreApellido"));
+    }
 
 }
 
@@ -145,6 +132,32 @@ function validarExpresion(valor, expre) {
     } else {
         valor.classList.remove("is-valid");
         valor.classList.add("is-invalid");
+    }
+}
+
+// Get the modal
+var modal = document.getElementById('modalTyc');
+
+// Get the button that opens the modal
+var tyc = document.getElementById("tyc");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+tyc.onclick = function () {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
     }
 }
 

@@ -20,20 +20,20 @@
                     <div class="form-row nombreApellido">
                         <div class="form-group col-md-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control nombre" placeholder="Nombre" id="inputNombre">
+                            <input type="text" class="form-control nombre" placeholder="Nombre" id="inputNombre" >
                         </div>
                         <div class="form-group col-md-6">
                             <label>Apellido</label>
-                            <input type="text" class="form-control appelido" placeholder="Appelido" id="inputApellido">
+                            <input type="text" class="form-control appelido" placeholder="Appelido" id="inputApellido" >
                         </div>
                     </div>
                     <div class="form-group dni">
                         <label for="inputDni">DNI <span>*</span></label>
-                        <input type="number" class="form-control" id="inputDni">
+                        <input type="number" class="form-control" id="inputDni" >
                     </div>
                     <div class="form-group email">
                         <label for="email">Email *</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="ejemplo@gmail.com">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="ejemplo@gmail.com" >
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-12">
@@ -64,37 +64,35 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox">
-                            <label class="form-check-label texto-terminos" id="tyc" for="gridCheck" >
+                            <input class="form-check-input" type="checkbox" id="TYC">
+                            <label class="form-check-label texto-terminos" for="gridCheck">
                                 Aceptar los términos y condiciones
                             </label>
                         </div>
                     </div>
-
-                    <div id="modalTyc" class="modal">
-
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                          
-                                <span class="close">&times;</span>
-                                <p>
-                                    INFORMACIÓN RELEVANTE
-
-                                    Es requisito necesario para la adquisición de los productos que se ofrecen en este sitio, que lea y acepte los siguientes Términos y Condiciones que a continuación se redactan. El uso de nuestros servicios así como la compra de nuestros productos implicará que usted ha leído y aceptado los Términos y Condiciones de Uso en el presente documento. Todas los productos  que son ofrecidos por nuestro sitio web pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir un producto, será necesario el registro por parte del usuario, con ingreso de datos personales fidedignos y definición de una contraseña.
-
-                                    El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en cualquier momento, en caso de que se haya registrado y que sea necesario para la compra de alguno de nuestros productos.  no asume la responsabilidad en caso de que entregue dicha clave a terceros.
-
-                                    Todas las compras y transacciones que se lleven a cabo por medio de este sitio web, están sujetas a un proceso de confirmación y verificación, el cual podría incluir la verificación del stock y disponibilidad de producto, validación de la forma de pago, validación de la factura (en caso de existir) y el cumplimiento de las condiciones requeridas por el medio de pago seleccionado. En algunos casos puede que se requiera una verificación por medio de correo electrónico.
-
-                                    Los precios de los productos ofrecidos en esta Tienda Online es válido solamente en las compras realizadas en este sitio web.
-                                </p>
-                            
-                        </div>
-                    </div>
-
                     <button type="submit" onclick="validarFormulario();" class="btn btn-primary boton-submit">Enviar</button>
 
 
+
+                    <div id="modalTerminos" tabindex="-1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </form>
             </div>

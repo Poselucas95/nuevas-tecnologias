@@ -23,7 +23,16 @@ function mostrarTerminos() {
     $("#modalTerminos").css('display', 'inline-block');
 }
 
+function obtenerListaProvincias() {
+    //Obtengo la lista de provincias
 
+}
+
+document.getElementById("inputProv").addEventListener("select", function () {
+    // Geteo JSON dependiendo que provincia tenga
+
+
+})
 
 //Validación del nombre en linea
 document.getElementById("inputNombre").addEventListener("input", function () {
@@ -105,7 +114,8 @@ function validarFormulario() {
     }
 
     //Validación del nombre y apelldio en caso de ser vacio o poseer la clase "is-invalid"(bootstrap)
-    if (inputNombre.classList.contains("is-invalid") || inputNombre.value.length < 1 || inputApellido.classList.contains("is-invalid") || inputApellido.value.length < 1) {
+    if (inputNombre.classList.contains("is-invalid") || inputNombre.value.length < 1 || inputApellido.classList.contains("is-invalid")
+        || inputApellido.value.length < 1) {
         event.preventDefault();
         var campoNombreApellido = document.querySelector(".nombreApellido");
         var textoNombreApellido = "Ingrese su nombre y apellido";

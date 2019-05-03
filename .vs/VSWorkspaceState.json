@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Assets"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\Assets\\jsonProvincias.json",
   "PreviewInSolutionExplorer": false
 }

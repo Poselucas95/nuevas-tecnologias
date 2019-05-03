@@ -1,29 +1,4 @@
-﻿function init() {
-    bindearEventoClickSubmit();
-    bindearEventoTerminosYCondiciones();
-}
-
-function bindearEventoClickSubmit() {
-    $(".boton-submit").on('click', validarCampos);
-}
-
-function bindearEventoTerminosYCondiciones() {
-    $(".texto-terminos").click(mostrarTerminos);
-}
-
-
-
-function validarTerminos() {
-    if (!document.getElementById("TYC").checked) {
-        alert("Debe aceptar los términos y condiciones.");
-    }
-}
-
-function mostrarTerminos() {
-    $("#modalTerminos").css('display', 'inline-block');
-}
-
-
+﻿
 
 //Validación del nombre en linea
 document.getElementById("inputNombre").addEventListener("input", function () {
@@ -149,10 +124,6 @@ function validarExpresion(valor, expre) {
 }
 
 
-$(document).ready(init);
-
-
-
 
 
 // Get the modal
@@ -180,14 +151,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
-
-
-
-
-
-$(document).ready(init); 
-
-
-
-
-

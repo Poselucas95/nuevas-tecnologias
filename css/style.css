@@ -5,8 +5,9 @@
 }
 
 input::-webkit-inner-spin-button {
-    @ -15,46 +14,4 @@ input::-webkit-inner-spin-button {
-
+    -webkit-appearance: none;
+    margin: 0;
+}
         #modalTerminos {
             display: none;
         }

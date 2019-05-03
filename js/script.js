@@ -135,13 +135,6 @@ function validarExpresion(valor, expre) {
     }
 }
 
-
-
-
-
-
-
-/*
 // Get the modal
 var modal = document.getElementById('modalTyc');
 
@@ -168,9 +161,9 @@ window.onclick = function (event) {
     }
 }
 
-*/
 
 $(document).ready(init); 
+
 
 
 

@@ -17,11 +17,10 @@ function loadJSON(jsonName, callback) {
     xobj.open('GET', jsonName);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
             callback(xobj.responseText);
         }
     };
-    xobj.send(null);
+    xobj.send();
 }
 
 function obtenerYAgregarListaProvincias() {
@@ -29,23 +28,65 @@ function obtenerYAgregarListaProvincias() {
     loadJSON("/Assets/jsonProvincias.json", function (response) {
         var provinciasFormGroup = document.getElementById("inputProv");
         let jsonObj = JSON.parse(response);
+        jsonProvinciasYLocalidades = jsonObj;
         Array.prototype.forEach.call(jsonObj["provincias"], prov => {
-            console.log(prov);
-           provinciasFormGroup.add(prov["nombre"]);
+            var option = document.createElement("option");
+            option.text = prov["nombre"];
+           provinciasFormGroup.add(option);
         });
     });
 }
 
-function obtenerLocalidades() {
-    var inputProvinciaHtml = document.getElementById("inputProv")
+
+var inputProvinciaHtml = document.getElementById("inputProv");
     inputProvinciaHtml.addEventListener("select", function () {
+       
+        //Se crea el div de ciudades
+        var provinciasCiudad = document.querySelector(".provinciasCiudad");
+        var fragmento = document.createDocumentFragment();
+        var div = document.createElement("div");
+        var label = document.createElement("label");
+        var select = document.createElement("select");
+        var option = document.createElement("option");
+        div.classList.add("form-group", "col-lg-12");
+        label.setAttribute("for", "inputCiudad");
+        label.innerText = "Ciudad";
+        select.setAttribute("id", "inputCiudad");
+        select.classList.add("form-control", "inputCiudad");
+        option.selected;
+        option.innerText = "Elegir...";
+
+
+        loadJSON("/Assets/jsonProvincias.json", function (response) {
+            let jsonObj = JSON.parse(response);
+            
+            Array.prototype.forEach.call(jsonObj["provincias"], prov => {
+
+                if (prov["nombre"] == inputProvinciaHtml.value) {
+                    Array.prototype.forEach.call(prov["localidades"], localidad => {
+                        // Iteramos localides y creamos opciones 
+                        var option = document.createElement("option");
+                        option.text = localidad;
+                        select.add(option);
+
+                    });
+                }
+                
+            });
+        });
+        div.appendChild(label);
+        div.appendChild(select);
+        div.appendChild(option);
+        fragmento.appendChild(div);
+        provinciasCiudad.appendChild(fragmento);
+
         // Getteo lista de localidades con el
+        
         var provinciaSeleccionada = inputProvinciaHtml.value
         jsonProvinciasYLocalidades.provinciaSeleccionada
 
 
     })
-}
 
 
 //Validación del nombre en linea

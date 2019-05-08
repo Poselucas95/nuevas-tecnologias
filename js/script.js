@@ -27,15 +27,11 @@ function loadJSON(jsonName, callback) {
 function obtenerYAgregarListaProvincias() {
     //Obtengo la lista de provincias
     loadJSON("/Assets/jsonProvincias.json", function (response) {
-        console.log(response)
-        var provinciasFormGroup = document.getElementById("listaProvincias");
-        // Parse JSON string into object
+        var provinciasFormGroup = document.getElementById("inputProv");
         let jsonObj = JSON.parse(response);
-
-        Array.prototype.forEach.call(jsonObj, prov => {
-                console.log(prov);
-            provinciasFormGroup.append(new Option(
-                prov.nombre));
+        Array.prototype.forEach.call(jsonObj["provincias"], prov => {
+            console.log(prov);
+           provinciasFormGroup.add(prov["nombre"]);
         });
     });
 }

@@ -1,5 +1,50 @@
 ﻿
 
+
+
+
+function loadJSON(jsonName, callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'http://myjson.com/za2z0', true);
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
+
+function obtenerYAgregarListaProvincias() {
+    //Obtengo la lista de provincias
+    loadJSON("jsonProvincias.json", function (response) {
+        console.log(response)
+        var provinciasFormGroup = document.getElementById("listaProvincias");
+        // Parse JSON string into object
+        let jsonObj = JSON.parse(response)
+        jsonProvinciasYLocalidades = jsonObj
+        jsonProvinciasYLocalidades.forEach(prov => {
+            console.log(prov);
+            provinciasFormGroup.append(new Option(
+                prov.nombre));
+        });
+    });
+}
+
+function obtenerLocalidades() {
+    var inputProvinciaHtml = document.getElementById("inputProv")
+    inputProvinciaHtml.addEventListener("select", function () {
+        // Getteo lista de localidades con el
+        var provinciaSeleccionada = inputProvinciaHtml.value
+        jsonProvinciasYLocalidades.provinciaSeleccionada
+
+
+    })
+}
+
+
 //Validación del nombre en linea
 document.getElementById("inputNombre").addEventListener("input", function () {
     var nombre = document.getElementById("inputNombre");

@@ -99,14 +99,19 @@ function validarFormulario() {
     //función para validar el checkbox de los términos y condiciones    
     if (!checkBox.checked) {
         event.preventDefault();
-        var fragmento = document.createDocumentFragment();
-        var div = document.createElement("div");
-        div.classList.add("alert-danger", "alert");
-        div.setAttribute("role", "alert");
-        div.innerText = "los términos y condiciones deben ser aceptados para continuar.";
-        fragmento.appendChild(div);
-        checkBox.appendChild(fragmento);
+        var campoCheckBox = document.querySelector(".campoCheckBox");
+        var textoCheck = "Debe aceptar los terminos y condiciones";
+        if (document.querySelector(".errorCheckbox")) {
+            document.querySelector(".errorCheckbox").innerText = textoCheck;
+        } else {
+            crearAlertaError("errorCheckbox", campoCheckBox, textoCheck);
+        }
+
+    } else {
+        document.querySelector(".errorCheckbox").parentNode.removeChild(document.querySelector(".errorCheckbox"));
     }
+
+    
 
 }
 

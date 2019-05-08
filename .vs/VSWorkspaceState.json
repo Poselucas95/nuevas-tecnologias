@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Assets"
+    "\\Assets",
+    "\\js"
   ],
-  "SelectedNode": "\\Assets\\jsonProvincias.json",
+  "SelectedNode": "\\formularioTecnologías.csproj",
   "PreviewInSolutionExplorer": false
 }

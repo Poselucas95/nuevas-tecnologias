@@ -110,3 +110,5 @@ C:\Users\pp\Desktop\formularioTecnologías\formularioTecnologías\formularioTecn
 C:\Users\pp\Desktop\formularioTecnologías\formularioTecnologías\formularioTecnologías\obj\Debug\formularioTecnologías.csproj.CopyComplete
 C:\Users\pp\Desktop\formularioTecnologías\formularioTecnologías\formularioTecnologías\obj\Debug\formularioTecnologías.dll
 C:\Users\pp\Desktop\formularioTecnologías\formularioTecnologías\formularioTecnologías\obj\Debug\formularioTecnologías.pdb
+C:\Users\bauti\Desktop\ba\reposTPS\newtech\obj\Debug\formularioTecnologías.dll
+C:\Users\bauti\Desktop\ba\reposTPS\newtech\obj\Debug\formularioTecnologías.pdb

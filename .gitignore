@@ -10,3 +10,4 @@
 *.config
 .vs/nuevas-tecnologias/v15/.suo
 *.sqlite
+.vs/slnx.sqlite

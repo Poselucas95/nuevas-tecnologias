@@ -1,0 +1,20 @@
+{
+"provincias": [
+  {
+    "nombre": "Buenos Aires",
+    "localidades": ["Vicente Lopez","Villa Adelina","San Isidro","Tigre"]
+  },
+  {
+    "nombre": "Tierra del fuego",
+    "localidades": [ "az", "Villa sd", "San as", "Tigre" ]
+  },
+  {
+    "nombre": "Chubut",
+    "localidades": [ "Vicente Lopez", "Villa Adelina", "San Isidro", "Tigre" ]
+  },
+  {
+    "nombre": "Cordoba",
+    "localidades": [ "Vicente Lopez", "asdasd Adelina", "asd Isidro", "asdasdadadasdasdasd" ]
+  }
+]
+}

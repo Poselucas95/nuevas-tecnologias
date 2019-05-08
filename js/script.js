@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadJSON(jsonName, callback) {
 
     var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
     xobj.open('GET', jsonName);
     xobj.onreadystatechange = function () {
         if (xobj.readyState == 4 && xobj.status == "200") {
@@ -27,14 +26,14 @@ function loadJSON(jsonName, callback) {
 
 function obtenerYAgregarListaProvincias() {
     //Obtengo la lista de provincias
-    loadJSON("jsonProvincias.json", function (response) {
+    loadJSON("/Assets/jsonProvincias.json", function (response) {
         console.log(response)
         var provinciasFormGroup = document.getElementById("listaProvincias");
         // Parse JSON string into object
-        let jsonObj = JSON.parse(response)
-        jsonProvinciasYLocalidades = jsonObj
-        jsonProvinciasYLocalidades.forEach(prov => {
-            console.log(prov);
+        let jsonObj = JSON.parse(response);
+
+        Array.prototype.forEach.call(jsonObj, prov => {
+                console.log(prov);
             provinciasFormGroup.append(new Option(
                 prov.nombre));
         });

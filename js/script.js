@@ -1,8 +1,4 @@
-﻿
-
-
-
-var jsonProvinciasYLocalidades;
+﻿var jsonProvinciasYLocalidades;
 
 document.addEventListener("DOMContentLoaded", function () {
     obtenerYAgregarListaProvincias();
@@ -39,54 +35,62 @@ function obtenerYAgregarListaProvincias() {
 
 
 var inputProvinciaHtml = document.getElementById("inputProv");
-    inputProvinciaHtml.addEventListener("select", function () {
-       
+inputProvinciaHtml.addEventListener("change", function () {
+     //Se evalua si ya existe un select con las ciudades.
+    if (document.querySelector(".inputCiudad")) {
+
+        document.querySelector(".inputCiudad").innerHTML = "";
+        var option1 = document.createElement("option");
+        option1.text = "Elegir...";
+        document.querySelector(".inputCiudad").add(option1);
+        rellenarCiudades(document.querySelector(".inputCiudad"));
+    } else {
         //Se crea el div de ciudades
         var provinciasCiudad = document.querySelector(".provinciasCiudad");
         var fragmento = document.createDocumentFragment();
         var div = document.createElement("div");
         var label = document.createElement("label");
         var select = document.createElement("select");
-        var option = document.createElement("option");
-        div.classList.add("form-group", "col-lg-12");
+        var option1 = document.createElement("option");
+        div.classList.add("form-group", "col-lg-12", "ciudadesSelect");
         label.setAttribute("for", "inputCiudad");
         label.innerText = "Ciudad";
         select.setAttribute("id", "inputCiudad");
         select.classList.add("form-control", "inputCiudad");
-        option.selected;
-        option.innerText = "Elegir...";
+        option1.text = "Elegir...";
+        select.add(option1);
+        //Se llama a la función que rellena el select
+        rellenarCiudades(select);
 
-
-        loadJSON("/Assets/jsonProvincias.json", function (response) {
-            let jsonObj = JSON.parse(response);
-            
-            Array.prototype.forEach.call(jsonObj["provincias"], prov => {
-
-                if (prov["nombre"] == inputProvinciaHtml.value) {
-                    Array.prototype.forEach.call(prov["localidades"], localidad => {
-                        // Iteramos localides y creamos opciones 
-                        var option = document.createElement("option");
-                        option.text = localidad;
-                        select.add(option);
-
-                    });
-                }
-                
-            });
-        });
         div.appendChild(label);
         div.appendChild(select);
-        div.appendChild(option);
         fragmento.appendChild(div);
         provinciasCiudad.appendChild(fragmento);
+    }
 
-        // Getteo lista de localidades con el
-        
-        var provinciaSeleccionada = inputProvinciaHtml.value
-        jsonProvinciasYLocalidades.provinciaSeleccionada
+})
 
 
-    })
+//Función que rellena un campo "select" con la información de la ciudad:
+function rellenarCiudades(select) {
+    loadJSON("/Assets/jsonProvincias.json", function (response) {
+        let jsonObj = JSON.parse(response);
+
+        Array.prototype.forEach.call(jsonObj["provincias"], prov => {
+            if (prov["nombre"] == inputProvinciaHtml.value) {
+                Array.prototype.forEach.call(prov["localidades"], localidad => {
+                    // Iteramos localides y creamos opciones 
+                    var option = document.createElement("option");
+                    option.setAttribute("name", localidad);
+                    option.text = localidad;
+                    select.add(option);
+                });
+            }
+
+        });
+    });
+
+}
 
 
 //Validación del nombre en linea
@@ -128,6 +132,15 @@ document.getElementById("inputDni").addEventListener("input", function () {
 })
 
 
+//Validación del Teléfono en linea
+document.getElementById("inputNumeroTelefonico").addEventListener("input", function () {
+    var tel = document.getElementById("inputNumeroTelefonico");
+    var val = /^[+]([0-9]{3})\-([0-9]{3})\-([0-9]{8})$/;
+    validarExpresion(tel, val);
+
+})
+
+
 //Validación del formulario al momento de ser enviado (enter o click)
 function validarFormulario() {
     //Variables de las ID de los campos a validar
@@ -148,7 +161,7 @@ function validarFormulario() {
         } else {
             crearAlertaError("errorEmail", campoEmail, textoEmail);
         }
-    } else {
+    } else if (document.querySelector(".errorEmail") ) {
         //Eliminar alerta en caso de ser corregido
         document.querySelector(".errorEmail").parentNode.removeChild(document.querySelector(".errorEmail"));
     }
@@ -164,13 +177,13 @@ function validarFormulario() {
         } else {
             crearAlertaError("errorDni", campoDni, textoDni);
         }
-    } else {
+    } else if (document.querySelector(".errorDni")){
         //Eliminar alerta en caso de ser corregido
         document.querySelector(".errorDni").parentNode.removeChild(document.querySelector(".errorDni"));
     }
 
     //Validación del nombre y apelldio en caso de ser vacio o poseer la clase "is-invalid"(bootstrap)
-    if (inputNombre.classList.contains("is-invalid") || inputNombre.value.length < 1 || inputApellido.classList.contains("is-invalid") || inputApellido.value.length < 1) {
+    if (inputNombre.classList.contains("is-invalid") || inputNombre.value.length < 1 || inputApellido.classList.contains("is-invalid") || inputApellido.value.length < 1 ) {
         event.preventDefault();
         var campoNombreApellido = document.querySelector(".nombreApellido");
         var textoNombreApellido = "Ingrese su nombre y apellido";
@@ -180,7 +193,7 @@ function validarFormulario() {
         } else {
             crearAlertaError("errorNombreApellido", campoNombreApellido, textoNombreApellido);
         }
-    } else {
+    } else if (document.querySelector(".errorNombreApellido")){
         //Eliminar alerta en caso de ser corregido
         document.querySelector(".errorNombreApellido").parentNode.removeChild(document.querySelector(".errorNombreApellido"));
     }
@@ -196,7 +209,7 @@ function validarFormulario() {
             crearAlertaError("errorCheckbox", campoCheckBox, textoCheck);
         }
 
-    } else {
+    } else if (document.querySelector(".errorCheckbox")){
         document.querySelector(".errorCheckbox").parentNode.removeChild(document.querySelector(".errorCheckbox"));
     }
 

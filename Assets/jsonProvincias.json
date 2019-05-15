@@ -1,0 +1,20 @@
+{
+"provincias": [
+  {
+    "nombre": "Buenos Aires",
+    "localidades": ["Vicente Lopez","Villa Adelina","San Isidro","Tigre"]
+  },
+  {
+    "nombre": "Santa fe",
+    "localidades": [ "Rosario", "Capital", "Santo Tome" ]
+  },
+  {
+    "nombre": "Mendoza",
+    "localidades": [ "Godoy Cruz", "Las Heras", "Mendoza" ]
+  },
+  {
+    "nombre": "Córdoba",
+    "localidades": [ "Villa Carlos Paz", "La falda", "Rio Cuarto" ]
+  }
+]
+}

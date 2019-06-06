@@ -3,28 +3,31 @@
     ViewBag.Title = "Exercise";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-<div class="container-fluid body-content">
-    <div class="row">
-        <div class="container">
-            <h1 class="home-title">Titulo del ejercicio</h1>
+<head>
+    <link href="~/Content/exercise.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid body-content">
+        <div class="row">
+            <h1 class="home-title">Estocadas</h1>
         </div>
-    </div>
-    <div class="row">
-        <div class="container col-md-offset-2 col-lg-5 home-info">
-            <div style="border-style: solid; border-color: red; height: 400px; width: 500px">
-                Aca va la imagen
+        <div class="row">
+            <div class="container col-md-offset-2 col-lg-5 home-info">
+                <div>
+                    <img src="~/Resources/Images/estocada-con-desplazamiento.jpg" />
+                </div>
+
+                <ul class="lista-ejercicios">
+                    <li class="lista-ejercicios-text">Musculo/s: </li>
+                    <li class="lista-ejercicios-desc">Piernas</li>
+                    <li class="lista-ejercicios-text">Descripción:</li>
+                    <li class="lista-ejercicios-desc">ACA VA LA DESCIPCIÓN DE A MIERDA</li>
+
+                </ul>
             </div>
-            <ul class="lista-ejercicios">
-                <li class="lista-ejercicios-text">Descripción:</li>
-                <li class="lista-ejercicios-desc">ACA VA LA DESCIPCIÓN DE A MIERDA</li>
-                <li class="lista-ejercicios-text">Musculo/s: <span class="lista-ejercicios-desc">Piernas</span></li>
+            <div class="container col-lg-3 home-login">
 
-            </ul>
-        </div>
-        <div class="container col-lg-3 home-login">
-            
+            </div>
         </div>
     </div>
-</div>
+</body>

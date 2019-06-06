@@ -22,3 +22,37 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+#dropdownMenu1 {
+    background-color: #5D4037;
+    border-color: #5D4037;
+    margin-top: 8px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+    #dropdownMenu1 a {
+        color: #9d9d9d;
+    }
+
+.home-title{
+    padding-top: 20px;
+}
+
+.lista-ejercicios {
+    list-style: none;
+}
+
+.lista-ejercicios-text {
+    margin-top: 10px;
+    color: #5D4037;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.lista-ejercicios-desc {
+    color: #757575;
+    font-size: 13px;
+    font-weight:normal;
+}

@@ -389,7 +389,6 @@ C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\bin\es\EntityFramew
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\bin\es\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.csprojAssemblyReference.cache
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.csproj.CoreCompileInputs.cache
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.csproj.CopyComplete
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.dll

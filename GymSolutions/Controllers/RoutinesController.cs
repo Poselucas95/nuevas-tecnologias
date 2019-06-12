@@ -14,6 +14,14 @@ namespace GymSolutions.Controllers
             return View();
         }
 
+        public ActionResult Rutina()
+        {
+            return View();
+        }
 
+        public ActionResult NuevaRutina()
+        {
+            return View();
+        }
     }
 }

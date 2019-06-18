@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
-    <link href="~/Content/rutinaIndex.css" rel="stylesheet" />
+    <script src="~/Scripts/nuevaRutina.js"></script>
 </head>
 <body>
     <h1 align="center">Nueva rutina</h1>
@@ -22,45 +22,125 @@
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Dia 1</a>
-                        </h4>
+                        <div class="panel-title row">
+                            <div class="col-lg-1">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Dia 1</a>
+                            </div>
+                            <div class="col-lg-9" align="center">
+                                <input class="form-control" id="inputDia" placeholder="Músculo" />
+                            </div>
+                            <div class="col-lg-1"align="right">
+                                <btn class="btn btn-success">Agregar ejercicio</btn>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-heading">
-                        Músculo: <input placeholder="Ej. Pecho y biceps"/>
-                        </div>
-                        <div class="panel-body">
-                            <input placeholder="Escriba su rutina a gusto!"/>
-                        </div>
+                        <ol>
+                            <li>
+                                <div class="panel-body row">
+
+                                    <div class="col-lg-5">
+                                        <label for="inputEjer">Ejercicio:</label>
+                                        <input class="form-control" id="inputEjer" type="text" />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="inputRepes">Repeticiones:</label>
+                                        <input class="form-control" id="inputRepes" type="number" />
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label for="inputSeries">Series:</label>
+                                        <input class="form-control" id="inputSeries" type="number" />
+                                    </div>
+                                    <div class="col-lg-2" align="center">
+                                        <btn class="btn btn-danger">Eliminar</btn>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ol>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Día 2</a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="panel-title row">
+                            <div class="col-lg-1">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Dia 2</a>
+                            </div>
+                            <div class="col-lg-9" align="center">
+                                <input class="form-control" id="inputDia" placeholder="Músculo" />
+                            </div>
+                            <div class="col-lg-1" align="right">
+                                <btn class="btn btn-success">Agregar ejercicio</btn>
+                            </div>
                         </div>
+
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse in">
+                        <ol>
+                            <li>
+                                <div class="panel-body row">
+
+                                    <div class="col-lg-5">
+                                        <label for="inputEjer">Ejercicio:</label>
+                                        <input class="form-control" id="inputEjer" type="text" />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="inputRepes">Repeticiones:</label>
+                                        <input class="form-control" id="inputRepes" type="number" />
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label for="inputSeries">Series:</label>
+                                        <input class="form-control" id="inputSeries" type="number" />
+                                    </div>
+                                    <div class="col-lg-2" align="center">
+                                        <btn class="btn btn-danger">Eliminar</btn>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ol>
                     </div>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Día 3</a>
-                        </h4>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        <div class="panel-title row">
+                            <div class="col-lg-1">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Dia 3</a>
+                            </div>
+                            <div class="col-lg-9" align="center">
+                                <input class="form-control" id="inputDia" placeholder="Músculo" />
+                            </div>
+                            <div class="col-lg-1" align="right">
+                                <btn class="btn btn-success">Agregar ejercicio</btn>
+                            </div>
                         </div>
+
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse in">
+                        <ol>
+                            <li>
+                                <div class="panel-body row">
+
+                                    <div class="col-lg-5">
+                                        <label for="inputEjer">Ejercicio:</label>
+                                        <input class="form-control" id="inputEjer" type="text" />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="inputRepes">Repeticiones:</label>
+                                        <input class="form-control" id="inputRepes" type="number" />
+                                    </div>
+                                    <div class="col-lg-1">
+                                        <label for="inputSeries">Series:</label>
+                                        <input class="form-control" id="inputSeries" type="number" />
+                                    </div>
+                                    <div class="col-lg-2" align="center">
+                                        <btn class="btn btn-danger">Eliminar</btn>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>

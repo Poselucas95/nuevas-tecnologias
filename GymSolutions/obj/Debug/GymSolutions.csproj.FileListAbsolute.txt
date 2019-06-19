@@ -393,3 +393,4 @@ C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSoluti
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.csproj.CopyComplete
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.dll
 C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.pdb
+C:\Users\pp\Documents\GitHub\nuevas-tecnologias\GymSolutions\obj\Debug\GymSolutions.csprojAssemblyReference.cache

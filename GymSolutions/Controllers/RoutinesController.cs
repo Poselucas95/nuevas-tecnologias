@@ -14,7 +14,7 @@ namespace GymSolutions.Controllers
             return View();
         }
 
-        public ActionResult Rutina()
+        public ActionResult VerRutina()
         {
             return View();
         }
@@ -23,5 +23,11 @@ namespace GymSolutions.Controllers
         {
             return View();
         }
+
+        public ActionResult EditarRutina()
+        {
+            return View();
+        }
+
     }
 }

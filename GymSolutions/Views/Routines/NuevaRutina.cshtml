@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <head>
-    <script src="~/Scripts/nuevaRutina.js"></script>
+    
 </head>
 <body>
     <h1 class="display" align="center">Nueva rutina</h1>
@@ -25,16 +25,16 @@
                             <div class="col-lg-1">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Dia 1</a>
                             </div>
-                            
-                            <div class="col-lg-1 col-lg-offset-9"align="right">
+
+                            <div class="col-lg-1 col-lg-offset-9" align="right">
                                 <btn class="btn btn-success">Agregar ejercicio</btn>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
-                        <ol>
-                            <li>
+                        <ol class="list-group">
+                            <li class="list-group-item">
                                 <div class="panel-body row">
                                     <div class="col-lg-2">
                                         <label for="selectMusc">Músculo:</label>
@@ -46,7 +46,7 @@
                                             <option value="audi">Gluteos</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4" >
+                                    <div class="col-lg-4">
                                         <label for="selectEjer">Ejercicio:</label>
                                         <select class="form-control" id="selectEjer">
                                             <option value="volvo">Volvo</option>
@@ -66,7 +66,7 @@
 
                                 </div>
                             </li>
-                            <li>
+                            <li class="list-group-item">
                                 <div class="panel-body row">
                                     <div class="col-lg-2">
                                         <label for="selectMusc">Músculo:</label>
@@ -78,7 +78,7 @@
                                             <option value="audi">Gluteos</option>
                                         </select>
                                     </div>
-                                    <div class="col-lg-4" >
+                                    <div class="col-lg-4">
                                         <label for="selectEjer">Ejercicio:</label>
                                         <select class="form-control" id="selectEjer">
                                             <option value="volvo">Volvo</option>
@@ -117,8 +117,8 @@
 
                     </div>
                     <div id="collapse2" class="panel-collapse collapse in">
-                        <ol>
-                            <li>
+                        <ol class="list-group">
+                            <li class="list-group-item">
                                 <div class="panel-body row">
                                     <div class="col-lg-2">
                                         <label for="selectMusc">Músculo:</label>
@@ -150,7 +150,7 @@
 
                                 </div>
                             </li>
-                            <li>
+                            <li class="list-group-item">
                                 <div class="panel-body row">
                                     <div class="col-lg-2">
                                         <label for="selectMusc">Músculo:</label>
@@ -234,5 +234,5 @@
 
     </form>
 
-
+    <script src="~/Scripts/nuevaRutina.js"></script>
 </body>

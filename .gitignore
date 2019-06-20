@@ -10,3 +10,17 @@
 \.vs/slnx\.sqlite
 
 \.vs/VSWorkspaceState\.json
+
+*.cache
+*.cache
+GymSolutions/obj/Debug/GymSolutions.csproj.FileListAbsolute.txt
+GymSolutions/bin/GymSolutions.dll
+GymSolutions/App_Data/aspnet-GymSolutions-20190605065933_log.ldf
+GymSolutions/App_Data/aspnet-GymSolutions-20190605065933.mdf
+.vs/nuevas-tecnologias/v15/.suo
+.vs/config/applicationhost.config
+GymSolutions/bin/GymSolutions.pdb
+GymSolutions/obj/Debug/GymSolutions.dll
+GymSolutions/obj/Debug/GymSolutions.pdb
+
+GymSolutions/obj/Debug/

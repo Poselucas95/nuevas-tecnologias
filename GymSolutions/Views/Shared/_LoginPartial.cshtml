@@ -4,17 +4,22 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                 @Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Mi perfil</a></li>
-                <li><a href="#">Configuración</a></li>
-                <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-            </ul>
-        </div>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <span class="caret"></span>
+    </button>
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Explore", "Home")</li>
+        <li>@Html.ActionLink("Mis rutinas", "Index", "Routines")</li>
+        <li>@Html.ActionLink("Ver ejercicios", "Index", "Exercises")</li>
+    </ul>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li>@Html.ActionLink("Mi perfil", "Index", "Profile")</li>
+        <li><a href="#">Configuración</a></li>
+        <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+    </ul>
+</div>
     }
 }
 else

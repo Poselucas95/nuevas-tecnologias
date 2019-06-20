@@ -26,5 +26,11 @@ namespace GymSolutions.Controllers
 
             return View();
         }
+
+        public ActionResult Explore()
+        {
+            ViewBag.Message = "Explorar";
+            return View();
+        }
     }
 }

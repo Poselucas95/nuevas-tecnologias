@@ -1,8 +1,14 @@
 ﻿$(document).ready(function () {
 
 
-    function agregarEjercicio() {
-        $("#item-1").clone().appendTo("#item-1");
-    }
+    $(".boton-agregar-ejercicio-1").click(function() {
+        var ejercicio = document.createElement("div");
+        var columna = document.createElement("div");
+        var labelMusculo = document.createElement("label");
+        var selectMusculos = document.createElement("select");
 
+
+        $("#item-1").append();
+
+    
 });

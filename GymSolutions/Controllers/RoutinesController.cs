@@ -19,8 +19,9 @@ namespace GymSolutions.Controllers
             return View();
         }
 
-        public ActionResult NuevaRutina()
+        public ActionResult NuevaRutina( int ejer = 1)
         {
+            ViewBag.ejercicios = ejer;
             return View();
         }
 

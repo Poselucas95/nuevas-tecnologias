@@ -19,7 +19,8 @@
         labelMusculo.setAttribute("for", "selectMusc");
         selectMusculos.classList.add("form-control");
         selectMusculos.setAttribute("id", "selectMusc");
-        optionSeleccionarMusc.append("Seleccione un musculo");
+        labelMusculo.append("Músculo:");
+        optionSeleccionarMusc.append("Seleccionar músculo");
         optionPecho.append("Pecho");
         optionEspalda.append("Espalda");
         optionBiceps.append("Biceps");
@@ -41,7 +42,7 @@
         var inputRepes = document.createElement("input");
         divColumnaRepes.classList.add("col-lg-4");
         labelRepes.setAttribute("for", "selectEjer");
-        labelRepes.append("Ejercicio:");
+        labelRepes.append("Repeticiones:");
         inputRepes.classList.add("form-control");
         inputRepes.setAttribute("id", "inputRepes");
         inputRepes.setAttribute("type", "text");
@@ -53,8 +54,30 @@
         botonEliminar.classList.add("btn","btn-danger");
         botonEliminar.append("Eliminar");
 
+        divColumnaMusculo.append(labelMusculo);
+        divColumnaMusculo.append(selectMusculos);
+        selectMusculos.append(optionSeleccionarMusc);
+        selectMusculos.append(optionPecho);
+        selectMusculos.append(optionEspalda);
+        selectMusculos.append(optionBiceps);
+        selectMusculos.append(optionTriceps);
+        selectMusculos.append(optionPiernas);
+        divEjercicioRow.append(divColumnaMusculo);
 
-        $("#item-1").append(listItem);
+        divColumnaEjercicio.append(labelEjercicio);
+        labelEjercicio.append("Ejercicio:");
+        divColumnaEjercicio.append(selectEjercicios);
+        divEjercicioRow.append(divColumnaEjercicio);
+
+        divColumnaRepes.append(labelRepes);
+        divColumnaRepes.append(inputRepes);
+        divEjercicioRow.append(divColumnaRepes);
+
+        divColumnaEliminar.append(botonEliminar);
+        divEjercicioRow.append(divColumnaEliminar);
+
+        listItem.append(divEjercicioRow);
+        $("ol").append(listItem);
 
     });
 

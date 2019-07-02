@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GymSolutions.Models.Perfil>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.perfilNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perfilApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perfilEdad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.perfilAltura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso_Usuario.ID_PESO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.perfilNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perfilApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perfilEdad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.perfilAltura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso_Usuario.ID_PESO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PERFIL }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_PERFIL }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PERFIL })
+        </td>
+    </tr>
+}
+
+</table>

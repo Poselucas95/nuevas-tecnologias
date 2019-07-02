@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GymSolutions.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,9 +22,14 @@ namespace GymSolutions.Controllers
 
         public ActionResult NuevaRutina( int ejer = 1)
         {
+            GymSolutionEntities contexto = new GymSolutionEntities();
+
+            var musculos = contexto.Categoria.Where.ToList();
+
             ViewBag.ejercicios = ejer;
-            return View();
+            return View(musculos);
         }
+
 
         public ActionResult EditarRutina()
         {

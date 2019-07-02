@@ -7,11 +7,11 @@
     <title>@ViewBag.Title - GymSolutions</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+<link href="~/Content/layout.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -25,10 +25,11 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
+    <div class="container-fluid body-content" id="page-container">
+        <div id="content-wrap">
+            @RenderBody()
+        </div>
+        <footer id="footer">
             <p>&copy; @DateTime.Now.Year - GymSolutions</p>
         </footer>
     </div>

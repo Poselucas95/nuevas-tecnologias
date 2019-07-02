@@ -7,20 +7,19 @@
     </head>
     <body>
         <h1 class="display" align="center">Hipertrofia</h1>
-        
         <form>
             <div class="form-group">
-                <label for="titulo">Titulo</label>
+                <label for="titulo">Nuevo título</label>
                 <input type="text" class="form-control" id="titulo" aria-describedby="titulo">
             </div>
             <div class="form-group">
-                <btn class="btn btn-danger">-</btn>
-                <btn class="btn btn-success">+</btn>
+                <btn class="btn btn-danger disabled" id="boton-eliminar-dia">-</btn>
+                <btn class="btn btn-success" id="boton-agregar-dia">+</btn>
             </div>
             <div class="from-group">
 
                 <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" id="dia1">
                         <div class="panel-heading">
                             <div class="panel-title row">
                                 <div class="col-lg-1">
@@ -28,7 +27,7 @@
                                 </div>
 
                                 <div class="col-lg-1 col-lg-offset-9" align="right">
-                                    <btn class="btn btn-success" onclick="agregarEjercicio()">Agregar ejercicio</btn>
+                                    <btn class="btn boton-agregar-ejercicio-1 btn-success">Agregar ejercicio</btn>
                                 </div>
                             </div>
 
@@ -41,10 +40,11 @@
                                             <label for="selectMusc">Músculo:</label>
                                             <select class="form-control" id="selectMusc">
                                                 <option value="">Seleccionar músculo</option>
-                                                <option value="volvo">Pecho</option>
-                                                <option value="saab">Espalda</option>
-                                                <option value="opel">Gambas</option>
-                                                <option value="audi">Gluteos</option>
+                                                <option value="pecho">Pecho</option>
+                                                <option value="espalda">Espalda</option>
+                                                <option value="biceps">Biceps</option>
+                                                <option value="triceps">Triceps</option>
+                                                <option value="piernas">Piernas</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-4">
@@ -76,7 +76,11 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary">Finalizar</button>
+            <div align="right">
+                <button type="submit" class="btn btn-primary">Finalizar</button>
+            </div>
+
+            @Html.ActionLink("Regresar", "Index", "Routines", new { @class = "btn btn-lg btn-primary" })
 
         </form>
         <script src="~/Scripts/nuevaRutina.js"></script>

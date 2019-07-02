@@ -1,11 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Gymsolutions",
-    "\\Gymsolutions\\Controllers",
-    "\\Gymsolutions\\Views",
-    "\\Gymsolutions\\Views\\Manage"
+    "\\GymSolutions",
+    "\\GymSolutions\\Controllers",
+    "\\GymSolutions\\Models",
+    "\\GymSolutions\\Views",
+    "\\GymSolutions\\Views\\Home"
   ],
-  "SelectedNode": "\\GymSolutions.sln",
+  "SelectedNode": "\\GymSolutions\\Controllers",
   "PreviewInSolutionExplorer": false
 }

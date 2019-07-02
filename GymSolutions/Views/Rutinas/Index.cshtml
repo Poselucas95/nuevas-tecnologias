@@ -1,0 +1,58 @@
+﻿@model IEnumerable<GymSolutions.Models.Rutina>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rutNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rutFechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rutFechaModificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usuCreador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Perfil.perfilNombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rutNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rutFechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rutFechaModificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuCreador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Perfil.perfilNombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_RUTINA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_RUTINA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_RUTINA })
+        </td>
+    </tr>
+}
+
+</table>

@@ -195,11 +195,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ExercisesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerfilsController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RoutinesController.cs" />
+    <Compile Include="Controllers\RutinasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -484,6 +487,21 @@
     <Content Include="Views\Routines\VerRutina.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Home\Explore.cshtml" />
+    <Content Include="Views\Categorias\Create.cshtml" />
+    <Content Include="Views\Categorias\Delete.cshtml" />
+    <Content Include="Views\Categorias\Details.cshtml" />
+    <Content Include="Views\Categorias\Edit.cshtml" />
+    <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Perfils\Create.cshtml" />
+    <Content Include="Views\Perfils\Delete.cshtml" />
+    <Content Include="Views\Perfils\Details.cshtml" />
+    <Content Include="Views\Perfils\Edit.cshtml" />
+    <Content Include="Views\Perfils\Index.cshtml" />
+    <Content Include="Views\Rutinas\Create.cshtml" />
+    <Content Include="Views\Rutinas\Delete.cshtml" />
+    <Content Include="Views\Rutinas\Details.cshtml" />
+    <Content Include="Views\Rutinas\Edit.cshtml" />
+    <Content Include="Views\Rutinas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

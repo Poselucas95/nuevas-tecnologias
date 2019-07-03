@@ -9,10 +9,15 @@ namespace GymSolutions.Controllers
 {
     public class RoutinesController : Controller
     {
+        GymSolutionEntities contexto = new GymSolutionEntities();
+
+
         // GET: Routines
         public ActionResult Index()
         {
-            return View();
+            var rutinas = contexto.Rutina.ToList();
+
+            return View(rutinas);
         }
 
         public ActionResult VerRutina()
@@ -20,16 +25,14 @@ namespace GymSolutions.Controllers
             return View();
         }
 
-        public ActionResult NuevaRutina( int ejer = 1)
+        public ActionResult NuevaRutina( int ejer = 1, int id)
         {
             GymSolutionEntities contexto = new GymSolutionEntities();
 
-            var musculos = contexto.Categoria.Where.ToList();
+            var ejercicios = contexto.
 
-            ViewBag.ejercicios = ejer;
-            return View(musculos);
+            return View(ejercicios);
         }
-
 
         public ActionResult EditarRutina()
         {

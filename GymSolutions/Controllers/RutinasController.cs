@@ -12,7 +12,7 @@ namespace GymSolutions.Controllers
 {
     public class RutinasController : Controller
     {
-        private GymSolutionEntities1 db = new GymSolutionEntities1();
+        private GymSolutionEntities db = new GymSolutionEntities();
 
         // GET: Rutinas
         public ActionResult Index()

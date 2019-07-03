@@ -25,13 +25,11 @@ namespace GymSolutions.Controllers
             return View();
         }
 
-        public ActionResult NuevaRutina( int ejer = 1, int id)
+        public ActionResult NuevaRutina( int ejer = 1)
         {
-            GymSolutionEntities contexto = new GymSolutionEntities();
+            
 
-            var ejercicios = contexto.
-
-            return View(ejercicios);
+            return View();
         }
 
         public ActionResult EditarRutina()

@@ -9,7 +9,7 @@ namespace GymSolutions.Controllers
 {
     public class RoutinesController : Controller
     {
-        GymSolutionEntities contexto = new GymSolutionEntities();
+        GymSolutionEntities1 contexto = new GymSolutionEntities1();
 
 
         // GET: Routines

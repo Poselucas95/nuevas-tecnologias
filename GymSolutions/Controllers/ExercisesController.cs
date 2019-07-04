@@ -14,7 +14,7 @@ namespace GymSolutions.Controllers
         // GET: Exercises
         public ActionResult Index()
         {
-            GymSolutionEntities contexto = new GymSolutionEntities();
+            GymSolutionEntities1 contexto = new GymSolutionEntities1();
             var musculos = contexto.Categoria.ToList();
             return View(musculos);
         }

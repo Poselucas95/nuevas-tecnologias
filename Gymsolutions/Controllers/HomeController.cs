@@ -27,13 +27,8 @@ namespace GymSolutions.Controllers
             return View();
         }
 
-     
         public ActionResult Explore()
         {
-            if (!Request.IsAuthenticated) { // Devolvemos al usuario a la pagina de inicio si no esta logueado
-                return RedirectToAction("Index", "Home");
-                
-            }
             ViewBag.Message = "Explorar";
             return View();
         }

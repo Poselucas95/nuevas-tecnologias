@@ -8,6 +8,15 @@ namespace GymSolutions.Controllers
 {
     public class HomeController : Controller
     {
+
+        public ActionResult loggedOutIfNeeded(ActionResult view) {
+            if (!Request.IsAuthenticated)
+            { // Devolvemos al usuario a la pagina de inicio si no esta logueado
+                return RedirectToAction("Index", "Home");
+            }
+
+            return view;
+        }
         public ActionResult Index()
         {
             return View();
@@ -30,12 +39,17 @@ namespace GymSolutions.Controllers
      
         public ActionResult Explore()
         {
-            if (!Request.IsAuthenticated) { // Devolvemos al usuario a la pagina de inicio si no esta logueado
-                return RedirectToAction("Index", "Home");
-                
-            }
-            ViewBag.Message = "Explorar";
-            return View();
+            ViewBag.Message = "Explore";
+            return loggedOutIfNeeded(View());
+        }
+
+        public ActionResult ExploreRoutine(String rutinaDto) // TODO cambiar a objeto rutina
+        {
+            ActionResult view = PartialView(rutinaDto);
+
+            // TODO agregar a la view data necesaria
+
+            return loggedOutIfNeeded(view);
         }
     }
 }

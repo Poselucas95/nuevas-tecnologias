@@ -1,11 +1,27 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Explorar";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/Home/Explore/explore.css");
 }
-
 <h2>Explorar</h2>
 
-<div class="container">
-   
+<div class="container text-center">
+
+    <h3>Las rutinas mas seguidas</h3>
+    @{
+        // Por cada rutina mas seguida ->
+        // foreach () { }
+        //  @Html.RenderAction("ExploreRoutine", "Home", new { "hola este es el objeto a pasar" });
+
+        //
+
+    }
+    @* Todo parsear datos BD y generar partials con esa data*@
+
+    @* TODO renderear una view con metodo controller y pasarle los datos por aca provenientes del viewbag de explore*@
+
+
+    @Html.Partial("~/Views/Home/ExploreRoutine.cshtml")
+
+    <hr class="separador">
 </div>

@@ -7,52 +7,33 @@
 
 <h2>Index</h2>
 
+@if(Model.Count() != null){
+<ul class="list-group" aria-labelledby="dropdownMenu1">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Nombre
+        <span class="badge badge-primary badge-pill"> @Html.DisplayNameFor(model => model.perfilNombre)</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Apellido
+        <span class="badge badge-primary badge-pill"> @Html.DisplayNameFor(model => model.perfilApellido)</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Edad
+        <span class="badge badge-primary badge-pill">@Html.DisplayNameFor(model => model.perfilEdad)</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Peso
+        <span class="badge badge-primary badge-pill">@Html.DisplayNameFor(model => model.perfilPeso)</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Altura
+        <span class="badge badge-primary badge-pill"> @Html.DisplayNameFor(model => model.perfilAltura)</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center"><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+</ul>
+}
+
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.perfilNombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.perfilApellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.perfilEdad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.perfilAltura)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Peso_Usuario.ID_PESO)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.perfilNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.perfilApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.perfilEdad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.perfilAltura)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Peso_Usuario.ID_PESO)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PERFIL }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_PERFIL }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PERFIL })
-        </td>
-    </tr>
-}
-
-</table>

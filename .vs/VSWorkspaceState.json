@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\GymSolutions",
+    "\\GymSolutions\\Controllers",
+    "\\GymSolutions\\Views"
   ],
+  "SelectedNode": "\\GymSolutions\\Controllers",
   "PreviewInSolutionExplorer": false
 }

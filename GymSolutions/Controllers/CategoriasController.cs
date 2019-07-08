@@ -12,7 +12,7 @@ namespace GymSolutions.Controllers
 {
     public class CategoriasController : Controller
     {
-        private GymSolutionEntities1 db = new GymSolutionEntities1();
+        private Entities db = new Entities();
 
         // GET: Categorias
         public ActionResult Index()

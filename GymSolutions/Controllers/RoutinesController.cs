@@ -9,15 +9,13 @@ namespace GymSolutions.Controllers
 {
     public class RoutinesController : Controller
     {
-        GymSolutionEntities1 contexto = new GymSolutionEntities1();
 
 
         // GET: Routines
         public ActionResult Index()
         {
-            var rutinas = contexto.Rutina.ToList();
 
-            return View(rutinas);
+            return View();
         }
 
         public ActionResult VerRutina()

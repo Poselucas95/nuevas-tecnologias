@@ -24,7 +24,7 @@ namespace GymSolutions.Models
         public string rutNombre { get; set; }
         public System.DateTime rutFechaCreacion { get; set; }
         public System.DateTime rutFechaModificacion { get; set; }
-        public int ID_PERFIL { get; set; }
+        public string ID_PERFIL { get; set; }
         public int usuCreador { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

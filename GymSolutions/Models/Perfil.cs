@@ -19,14 +19,20 @@ namespace GymSolutions.Models
         {
             this.Rutina = new HashSet<Rutina>();
         }
+
+        public Perfil(string id)
+        {
+            this.ID_PERFIL = id;
+        }
     
-        public int ID_PERFIL { get; set; }
+        public string ID_PERFIL { get; set; }
         public string perfilNombre { get; set; }
         public string perfilApellido { get; set; }
         public Nullable<System.DateTime> perfilEdad { get; set; }
         public Nullable<int> perfilAltura { get; set; }
+        public Nullable<int> perfilPeso { get; set; }
     
-        public virtual Peso_Usuario Peso_Usuario { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rutina> Rutina { get; set; }
     }

@@ -12,17 +12,22 @@ namespace GymSolutions.Controllers
 {
     public class PerfilsController : Controller
     {
-        private GymSolutionEntities1 db = new GymSolutionEntities1();
+        private Entities db = new Entities();
 
         // GET: Perfils
         public ActionResult Index()
         {
-            var perfil = db.Perfil.Include(p => p.Peso_Usuario);
-            return View(perfil.ToList());
+            String id = db.AspNetUsers.Where(x => x.UserName == User.Identity.Name).Select(x => x.Id).First();
+            if (db.Perfil.Where(x => x.ID_PERFIL == id).Count() == 1)
+            {
+                var perfil = db.Perfil.Include(p => p.AspNetUsers);
+                return View(perfil.ToList());
+            }
+            return View();
         }
 
         // GET: Perfils/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -39,7 +44,7 @@ namespace GymSolutions.Controllers
         // GET: Perfils/Create
         public ActionResult Create()
         {
-            ViewBag.ID_PERFIL = new SelectList(db.Peso_Usuario, "ID_PESO", "ID_PESO");
+            ViewBag.ID_PERFIL = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -48,8 +53,9 @@ namespace GymSolutions.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_PERFIL,perfilNombre,perfilApellido,perfilEdad,perfilAltura")] Perfil perfil)
+        public ActionResult Create([Bind(Include = "ID_PERFIL,perfilNombre,perfilApellido,perfilEdad,perfilAltura,perfilPeso")] Perfil perfil)
         {
+            //Perfil perfil = new Perfil(db.AspNetUsers.Where(x => x.Email == model.Email).Select(x => x.Id).First());
             if (ModelState.IsValid)
             {
                 db.Perfil.Add(perfil);
@@ -57,12 +63,12 @@ namespace GymSolutions.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_PERFIL = new SelectList(db.Peso_Usuario, "ID_PESO", "ID_PESO", perfil.ID_PERFIL);
+            ViewBag.ID_PERFIL = new SelectList(db.AspNetUsers, "Id", "Email", perfil.ID_PERFIL);
             return View(perfil);
         }
 
         // GET: Perfils/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -73,7 +79,7 @@ namespace GymSolutions.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_PERFIL = new SelectList(db.Peso_Usuario, "ID_PESO", "ID_PESO", perfil.ID_PERFIL);
+            ViewBag.ID_PERFIL = new SelectList(db.AspNetUsers, "Id", "Email", perfil.ID_PERFIL);
             return View(perfil);
         }
 
@@ -82,7 +88,7 @@ namespace GymSolutions.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_PERFIL,perfilNombre,perfilApellido,perfilEdad,perfilAltura")] Perfil perfil)
+        public ActionResult Edit([Bind(Include = "ID_PERFIL,perfilNombre,perfilApellido,perfilEdad,perfilAltura,perfilPeso")] Perfil perfil)
         {
             if (ModelState.IsValid)
             {
@@ -90,12 +96,12 @@ namespace GymSolutions.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_PERFIL = new SelectList(db.Peso_Usuario, "ID_PESO", "ID_PESO", perfil.ID_PERFIL);
+            ViewBag.ID_PERFIL = new SelectList(db.AspNetUsers, "Id", "Email", perfil.ID_PERFIL);
             return View(perfil);
         }
 
         // GET: Perfils/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -112,7 +118,7 @@ namespace GymSolutions.Controllers
         // POST: Perfils/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Perfil perfil = db.Perfil.Find(id);
             db.Perfil.Remove(perfil);

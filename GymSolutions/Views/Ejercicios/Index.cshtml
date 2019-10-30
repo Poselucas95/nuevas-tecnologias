@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GymSolutions.Models.Ejercicio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ejNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ejDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ejMedia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejMedia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_EJERCICIO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_EJERCICIO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_EJERCICIO })
+        </td>
+    </tr>
+}
+
+</table>

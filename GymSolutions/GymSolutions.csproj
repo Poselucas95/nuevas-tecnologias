@@ -197,9 +197,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EjerciciosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoutinesController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\RutinasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -494,6 +497,16 @@
     <Content Include="Views\AspNetUsers\Details.cshtml" />
     <Content Include="Views\AspNetUsers\Edit.cshtml" />
     <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\Ejercicios\Create.cshtml" />
+    <Content Include="Views\Ejercicios\Delete.cshtml" />
+    <Content Include="Views\Ejercicios\Details.cshtml" />
+    <Content Include="Views\Ejercicios\Edit.cshtml" />
+    <Content Include="Views\Ejercicios\Index.cshtml" />
+    <Content Include="Views\Rutinas\Create.cshtml" />
+    <Content Include="Views\Rutinas\Delete.cshtml" />
+    <Content Include="Views\Rutinas\Details.cshtml" />
+    <Content Include="Views\Rutinas\Edit.cshtml" />
+    <Content Include="Views\Rutinas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

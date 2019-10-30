@@ -1,0 +1,743 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GyMSolution.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catNombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="ID_EJERCICIO" />
+          </Key>
+          <Property Name="ID_EJERCICIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ejNombre" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ejDesc" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="ejMedia" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Ejercicio_Categoria">
+          <Key>
+            <PropertyRef Name="ID_EJERCICIO_CATEGORIA" />
+          </Key>
+          <Property Name="ID_EJERCICIO_CATEGORIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_EJERCICIO" Type="int" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ejercicio_rutina">
+          <Key>
+            <PropertyRef Name="Id_ejercicio_rutina" />
+          </Key>
+          <Property Name="Id_ejercicio_rutina" Type="int" Nullable="false" />
+          <Property Name="id_Rutina" Type="int" Nullable="false" />
+          <Property Name="repeticiones" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="series" Type="int" Nullable="false" />
+          <Property Name="id_ejercicio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="int" Nullable="false" />
+          <Property Name="perfilNombre" Type="varchar" MaxLength="50" />
+          <Property Name="perfilEdad" Type="date" />
+          <Property Name="perfilAltura" Type="int" />
+          <Property Name="perfilPeso" Type="int" />
+        </EntityType>
+        <EntityType Name="Rutina">
+          <Key>
+            <PropertyRef Name="ID_RUTINA" />
+          </Key>
+          <Property Name="ID_RUTINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rutNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rutFechaCreacion" Type="date" Nullable="false" />
+          <Property Name="ID_PERFIL" Type="int" Nullable="false" />
+          <Property Name="ID_Ejercicio_Rutina" Type="int" Nullable="false" />
+          <Property Name="dias_por_semana" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Principal>
+            <Dependent Role="Ejercicio_rutina">
+              <PropertyRef Name="id_ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_Categoria_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="Ejercicio_Categoria" Type="Self.Ejercicio_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Principal>
+            <Dependent Role="Ejercicio_Categoria">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_Categoria_Ejercicio_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Ejercicio_Categoria" Type="Self.Ejercicio_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="Ejercicio_Categoria">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_rutina_ToTable">
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="1" />
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rutina">
+              <PropertyRef Name="ID_RUTINA" />
+            </Principal>
+            <Dependent Role="Ejercicio_rutina">
+              <PropertyRef Name="id_Rutina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_rutinas">
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="1" />
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio_rutina">
+              <PropertyRef Name="Id_ejercicio_rutina" />
+            </Principal>
+            <Dependent Role="Rutina">
+              <PropertyRef Name="ID_Ejercicio_Rutina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="Rutina">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GyMSolutionStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ejercicio_Categoria" EntityType="Self.Ejercicio_Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ejercicio_rutina" EntityType="Self.Ejercicio_rutina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rutina" EntityType="Self.Rutina" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio" Association="Self.FK_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_Categoria_Ejercicio" Association="Self.FK_Ejercicio_Categoria_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="Ejercicio_Categoria" EntitySet="Ejercicio_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_Categoria_Ejercicio_Categoria" Association="Self.FK_Ejercicio_Categoria_Ejercicio_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Ejercicio_Categoria" EntitySet="Ejercicio_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_rutina_ToTable" Association="Self.FK_Ejercicio_rutina_ToTable">
+            <End Role="Rutina" EntitySet="Rutina" />
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_rutinas" Association="Self.FK_Ejercicio_rutinas">
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+            <End Role="Rutina" EntitySet="Rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Perfil" Association="Self.FK_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Rutina" EntitySet="Rutina" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GyMSolution" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ejercicio_Categoria" Relationship="Self.FK_Ejercicio_Categoria_Ejercicio_Categoria" FromRole="Categoria" ToRole="Ejercicio_Categoria" />
+        </EntityType>
+        <EntityType Name="Ejercicio">
+          <Key>
+            <PropertyRef Name="ID_EJERCICIO" />
+          </Key>
+          <Property Name="ID_EJERCICIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ejNombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ejDesc" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ejMedia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ejercicio_rutina" Relationship="Self.FK_Ejercicio" FromRole="Ejercicio" ToRole="Ejercicio_rutina" />
+          <NavigationProperty Name="Ejercicio_Categoria" Relationship="Self.FK_Ejercicio_Categoria_Ejercicio" FromRole="Ejercicio" ToRole="Ejercicio_Categoria" />
+        </EntityType>
+        <EntityType Name="Ejercicio_Categoria">
+          <Key>
+            <PropertyRef Name="ID_EJERCICIO_CATEGORIA" />
+          </Key>
+          <Property Name="ID_EJERCICIO_CATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_EJERCICIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK_Ejercicio_Categoria_Ejercicio_Categoria" FromRole="Ejercicio_Categoria" ToRole="Categoria" />
+          <NavigationProperty Name="Ejercicio" Relationship="Self.FK_Ejercicio_Categoria_Ejercicio" FromRole="Ejercicio_Categoria" ToRole="Ejercicio" />
+        </EntityType>
+        <EntityType Name="Ejercicio_rutina">
+          <Key>
+            <PropertyRef Name="Id_ejercicio_rutina" />
+          </Key>
+          <Property Name="Id_ejercicio_rutina" Type="Int32" Nullable="false" />
+          <Property Name="id_Rutina" Type="Int32" Nullable="false" />
+          <Property Name="repeticiones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="series" Type="Int32" Nullable="false" />
+          <Property Name="id_ejercicio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ejercicio" Relationship="Self.FK_Ejercicio" FromRole="Ejercicio_rutina" ToRole="Ejercicio" />
+          <NavigationProperty Name="Rutina" Relationship="Self.FK_Ejercicio_rutina_ToTable" FromRole="Ejercicio_rutina" ToRole="Rutina" />
+          <NavigationProperty Name="Rutina1" Relationship="Self.FK_Ejercicio_rutinas" FromRole="Ejercicio_rutina" ToRole="Rutina" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="ID_PERFIL" />
+          </Key>
+          <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+          <Property Name="perfilNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="perfilEdad" Type="DateTime" Precision="0" />
+          <Property Name="perfilAltura" Type="Int32" />
+          <Property Name="perfilPeso" Type="Int32" />
+          <NavigationProperty Name="Rutina" Relationship="Self.FK_Perfil" FromRole="Perfil" ToRole="Rutina" />
+        </EntityType>
+        <EntityType Name="Rutina">
+          <Key>
+            <PropertyRef Name="ID_RUTINA" />
+          </Key>
+          <Property Name="ID_RUTINA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rutNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rutFechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID_PERFIL" Type="Int32" Nullable="false" />
+          <Property Name="ID_Ejercicio_Rutina" Type="Int32" Nullable="false" />
+          <Property Name="dias_por_semana" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ejercicio_rutina" Relationship="Self.FK_Ejercicio_rutina_ToTable" FromRole="Rutina" ToRole="Ejercicio_rutina" />
+          <NavigationProperty Name="Ejercicio_rutina1" Relationship="Self.FK_Ejercicio_rutinas" FromRole="Rutina" ToRole="Ejercicio_rutina" />
+          <NavigationProperty Name="Perfil" Relationship="Self.FK_Perfil" FromRole="Rutina" ToRole="Perfil" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_Categoria_Ejercicio_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Ejercicio_Categoria" Type="Self.Ejercicio_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="Ejercicio_Categoria">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Principal>
+            <Dependent Role="Ejercicio_rutina">
+              <PropertyRef Name="id_ejercicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_Categoria_Ejercicio">
+          <End Role="Ejercicio" Type="Self.Ejercicio" Multiplicity="1" />
+          <End Role="Ejercicio_Categoria" Type="Self.Ejercicio_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Principal>
+            <Dependent Role="Ejercicio_Categoria">
+              <PropertyRef Name="ID_EJERCICIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_rutina_ToTable">
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="1" />
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rutina">
+              <PropertyRef Name="ID_RUTINA" />
+            </Principal>
+            <Dependent Role="Ejercicio_rutina">
+              <PropertyRef Name="id_Rutina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ejercicio_rutinas">
+          <End Role="Ejercicio_rutina" Type="Self.Ejercicio_rutina" Multiplicity="1" />
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ejercicio_rutina">
+              <PropertyRef Name="Id_ejercicio_rutina" />
+            </Principal>
+            <Dependent Role="Rutina">
+              <PropertyRef Name="ID_Ejercicio_Rutina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+          <End Role="Rutina" Type="Self.Rutina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="ID_PERFIL" />
+            </Principal>
+            <Dependent Role="Rutina">
+              <PropertyRef Name="ID_PERFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Ejercicio" EntityType="Self.Ejercicio" />
+          <EntitySet Name="Ejercicio_Categoria" EntityType="Self.Ejercicio_Categoria" />
+          <EntitySet Name="Ejercicio_rutina" EntityType="Self.Ejercicio_rutina" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" />
+          <EntitySet Name="Rutina" EntityType="Self.Rutina" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_Categoria_Ejercicio_Categoria" Association="Self.FK_Ejercicio_Categoria_Ejercicio_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Ejercicio_Categoria" EntitySet="Ejercicio_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio" Association="Self.FK_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_Categoria_Ejercicio" Association="Self.FK_Ejercicio_Categoria_Ejercicio">
+            <End Role="Ejercicio" EntitySet="Ejercicio" />
+            <End Role="Ejercicio_Categoria" EntitySet="Ejercicio_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_rutina_ToTable" Association="Self.FK_Ejercicio_rutina_ToTable">
+            <End Role="Rutina" EntitySet="Rutina" />
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ejercicio_rutinas" Association="Self.FK_Ejercicio_rutinas">
+            <End Role="Ejercicio_rutina" EntitySet="Ejercicio_rutina" />
+            <End Role="Rutina" EntitySet="Rutina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Perfil" Association="Self.FK_Perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Rutina" EntitySet="Rutina" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GyMSolutionStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="GyMSolution.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="GyMSolution.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="GyMSolution.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="GyMSolution.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="GyMSolution.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="GyMSolution.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="catNombre" ColumnName="catNombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejercicio">
+            <EntityTypeMapping TypeName="GyMSolution.Ejercicio">
+              <MappingFragment StoreEntitySet="Ejercicio">
+                <ScalarProperty Name="ID_EJERCICIO" ColumnName="ID_EJERCICIO" />
+                <ScalarProperty Name="ejNombre" ColumnName="ejNombre" />
+                <ScalarProperty Name="ejDesc" ColumnName="ejDesc" />
+                <ScalarProperty Name="ejMedia" ColumnName="ejMedia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejercicio_Categoria">
+            <EntityTypeMapping TypeName="GyMSolution.Ejercicio_Categoria">
+              <MappingFragment StoreEntitySet="Ejercicio_Categoria">
+                <ScalarProperty Name="ID_EJERCICIO_CATEGORIA" ColumnName="ID_EJERCICIO_CATEGORIA" />
+                <ScalarProperty Name="ID_EJERCICIO" ColumnName="ID_EJERCICIO" />
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ejercicio_rutina">
+            <EntityTypeMapping TypeName="GyMSolution.Ejercicio_rutina">
+              <MappingFragment StoreEntitySet="Ejercicio_rutina">
+                <ScalarProperty Name="Id_ejercicio_rutina" ColumnName="Id_ejercicio_rutina" />
+                <ScalarProperty Name="id_Rutina" ColumnName="id_Rutina" />
+                <ScalarProperty Name="repeticiones" ColumnName="repeticiones" />
+                <ScalarProperty Name="series" ColumnName="series" />
+                <ScalarProperty Name="id_ejercicio" ColumnName="id_ejercicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfil">
+            <EntityTypeMapping TypeName="GyMSolution.Perfil">
+              <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+                <ScalarProperty Name="perfilNombre" ColumnName="perfilNombre" />
+                <ScalarProperty Name="perfilEdad" ColumnName="perfilEdad" />
+                <ScalarProperty Name="perfilAltura" ColumnName="perfilAltura" />
+                <ScalarProperty Name="perfilPeso" ColumnName="perfilPeso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rutina">
+            <EntityTypeMapping TypeName="GyMSolution.Rutina">
+              <MappingFragment StoreEntitySet="Rutina">
+                <ScalarProperty Name="ID_RUTINA" ColumnName="ID_RUTINA" />
+                <ScalarProperty Name="rutNombre" ColumnName="rutNombre" />
+                <ScalarProperty Name="rutFechaCreacion" ColumnName="rutFechaCreacion" />
+                <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+                <ScalarProperty Name="ID_Ejercicio_Rutina" ColumnName="ID_Ejercicio_Rutina" />
+                <ScalarProperty Name="dias_por_semana" ColumnName="dias_por_semana" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="GyMSolution.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

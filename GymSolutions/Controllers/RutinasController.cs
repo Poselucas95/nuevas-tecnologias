@@ -14,6 +14,35 @@ namespace GymSolutions.Controllers
     {
         private Entities1 db = new Entities1();
 
+
+        // TODO: FIXEAR ESTO
+        // GET: Routines
+        public ActionResult Index()
+        {
+            var rutinas = db.Rutina.ToList();
+
+            return View(rutinas);
+        }
+
+        public ActionResult VerRutina()
+        {
+            return View();
+        }
+
+        public ActionResult NuevaRutina(int ejer = 1)
+        {
+
+
+            return View();
+        }
+
+        public ActionResult EditarRutina()
+        {
+            return View();
+        }
+
+
+
         // GET: Rutinas
         public ActionResult Index()
         {

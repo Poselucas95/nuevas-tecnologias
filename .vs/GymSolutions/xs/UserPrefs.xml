@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{357163AF-6087-45FE-963D-D143A6113123}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="GymSolutions/Controllers/ProfileController.cs">
+    <Files>
+      <File FileName="GymSolutions/Controllers/ProfileController.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GymSolutions" expanded="True">
             <Node name="GymSolutions" expanded="True">
               <Node name=".vs" expanded="True" />
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ProfileController.cs" selected="True" />
+              </Node>
               <Node name="Models" expanded="True">
                 <Node name="Model1.edmx" expanded="True">
                   <Node name="Model1.tt" expanded="True" />
                 </Node>
               </Node>
               <Node name="Views" expanded="True">
-                <Node name="Profile" expanded="True" />
-                <Node name="Routines" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
                 <Node name="Rutinas" expanded="True" />
               </Node>
             </Node>

@@ -44,7 +44,7 @@ namespace GymSolutions.Controllers
 
 
         // GET: Rutinas
-        public ActionResult Index()
+        public ActionResult IndexNUEVO() // TODO: que este sea el principal
         {
             var rutina = db.Rutina.Include(r => r.Ejercicio_rutina1).Include(r => r.Perfil);
             return View(rutina.ToList());

@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="content-area">
+
+    <!-- PAGE -->
+    <section class="page-section contact dark">
+        <div class="container">
+
+            <!-- Get in touch -->
+
+            <h2 class="section-title">
+                <span>Envianos tu mensaje</span>
+            </h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Contact form -->
+                    <form name="contact-form" method="post" action="#" class="contact-form alt" id="contact-form">
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="name">Nombre</label>
+                                        <input type="text" name="name" id="name" placeholder="Nombre" value="" size="30" data-toggle="tooltip" title="Nombre es requerido"
+                                               class="form-control placeholder" required />
+                                        <span class="form-control-icon"><i class="fa fa-user"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="outer required">
+                                    <div class="form-group af-inner has-icon">
+                                        <label class="sr-only" for="email">Email</label>
+                                        <input type="text" name="email" id="email" placeholder="Email" value="" size="30"
+                                               data-toggle="tooltip" title="Email es requerido"
+                                               class="form-control placeholder" required />
+                                        <span class="form-control-icon"><i class="fa fa-envelope"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group af-inner has-icon">
+                            <label class="sr-only" for="Message">Mensaje</label>
+                            <textarea name="Message" id="Message" placeholder="Tu Mensaje" rows="4" cols="50"
+                                      data-toggle="tooltip" title="Message is required"
+                                      class="form-control placeholder"></textarea>
+                            <span class="form-control-icon"><i class="fa fa-bars"></i></span>
+                        </div>
+
+                        <div class="outer required">
+                            <div class="form-group af-inner">
+                                <input type="submit" name="submit" class="form-button form-button-submit btn btn-block btn-theme" id="submit_btn" value="Enviar Mensaje" />
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- /Contact form -->
+                </div>
+                <div class="col-md-6">
+
+                    <ul class="media-list contact-list">
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-home"></i></div>
+                            <div class="media-body">
+                                Av. del Libertador 6796<br />
+                                C1429 CABA, Argentina
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-phone"></i></div>
+                            <div class="media-body">Call Center : 0800-123-RENT</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-envelope"></i></div>
+                            <div class="media-body">
+                                Email : <a href="mailto:hola@rentngo.com">hola@rentngo.com</a>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left"><i class="fa fa-clock-o"></i></div>
+                            <div class="media-body">
+                                Horarios : <br /> Lunes a Viernes: 09:00-21:00 <br />
+                                Sabados y Domingos: 10:00 a 16:00
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- /Get in touch -->
+
+        </div>
+    </section>
+    <!-- /PAGE -->
+
+</div>

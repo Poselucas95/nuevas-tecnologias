@@ -1,0 +1,206 @@
+﻿@using Microsoft.AspNet.Identity
+@model List<RentnGo.Common.Auto>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="content-area">
+
+    <!-- PAGE  ULTIMOS INGRESADOS-->
+    <section class="page-section">
+        <div class="container">
+
+            <h2 class="section-title">
+                <small>Novedades del dia</small>
+                <span>Ultimos modelos ingresados</span>
+            </h2>
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade active in" id="">
+
+                    <div class="swiper swiper--offers-popular">
+                        <div class="swiper-container">
+
+                            <div class="swiper-wrapper">
+
+
+                                @foreach (var auto in Model)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="thumbnail no-border no-padding thumbnail-car-card">
+                                            <div class="media">
+                                                <img src="@auto.Foto" alt="" width="358" height="238" />
+                                            </div>
+                                            <div class="caption text-center">
+                                                <h4 class="caption-title"><a href="#">@auto.Marca @auto.Modelo</a></h4>
+                                                <div class="caption-text">Desde @auto.PrecioPorDia/por dia</div>
+                                                <div class="buttons">
+                                                    <a class="btn btn-theme" href="~/Home/Reservar/@auto.Id">Reservar</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+
+                        </div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                        <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /PAGE -->
+    <!-- PAGE CONTADORES -->
+    <section class="page-section image">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <div class="caption">
+                            <div class="caption-icon"><i class="fa fa-heart"></i></div>
+                            <div class="caption-number">9</div>
+                            <h4 class="caption-title">Clientes Felices</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <div class="caption">
+                            <div class="caption-icon"><i class="fa fa-car"></i></div>
+                            <div class="caption-number">@Model.Count</div>
+                            <h4 class="caption-title">Vehiculos Disponibles</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <div class="caption">
+                            <div class="caption-icon"><i class="fa fa-road"></i></div>
+                            <div class="caption-number">75</div>
+                            <h4 class="caption-title">Km recorridos</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="thumbnail thumbnail-counto no-border no-padding">
+                        <div class="caption">
+                            <div class="caption-icon"><i class="fa fa-instagram"></i></div>
+                            <div class="caption-number">7</div>
+                            <h4 class="caption-title">Stories en Instagram</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /PAGE -->
+    <!-- PAGE TARJETAS -->
+    <section class="page-section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail thumbnail-featured no-border no-padding">
+                        <div class="media">
+                            <a class="media-link" href="">
+                                <div class="caption">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-support"></i></div>
+                                            <h4 class="caption-title">Auxilio 24x7</h4>
+                                            <div class="caption-text">Nuestros vehiculos tienen asistencia en ruta<br />las 24 horas 7 dias a la semana.</div>
+                                            <div class="buttons">
+                                                <span class="btn btn-theme btn-theme-transparent">Sin cargo adicional</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption hovered">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-support"></i></div>
+                                            <h4 class="caption-title">Auxilio 24x7</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail thumbnail-featured no-border no-padding">
+                        <div class="media">
+                            <a class="media-link" href="">
+                                <div class="caption">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-calendar"></i></div>
+                                            <h4 class="caption-title">Reserva Online</h4>
+                                            <div class="caption-text">El auto que necesitas a un clic de distancia<br />busca, reserva y paga desde tu dispositivo.</div>
+                                            <div class="buttons">
+                                                <span class="btn btn-theme btn-theme-transparent">Donde y cuando quieras</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption hovered">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-calendar"></i></div>
+                                            <h4 class="caption-title">Reserva Online</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail thumbnail-featured no-border no-padding">
+                        <div class="media">
+                            <a class="media-link" href="">
+                                <div class="caption">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-dollar"></i></div>
+                                            <h4 class="caption-title">Calidad y Servicio</h4>
+                                            <div class="caption-text">Los mejores vehiculos del mercado<br />certificados y siempre al mejor precio.</div>
+                                            <div class="buttons">
+                                                <span class="btn btn-theme btn-theme-transparent">Garantizado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption hovered">
+                                    <div class="caption-wrapper div-table">
+                                        <div class="caption-inner div-cell">
+                                            <div class="caption-icon"><i class="fa fa-dollar"></i></div>
+                                            <h4 class="caption-title">Calidad y Servicio</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- /PAGE -->
+    <!-- /COMENTARIO NADA -->
+
+
+</div>
+<input type="hidden" id="displayName" value="@User.Identity.Name" />

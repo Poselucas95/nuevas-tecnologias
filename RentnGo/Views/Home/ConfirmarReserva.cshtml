@@ -1,0 +1,32 @@
+﻿@model RentnGo.Models.ReservaViewModel
+@{
+    ViewBag.Title = "ConfirmarReserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Username = User.Identity.Name;
+}
+
+<div class="content-area">
+
+    <!-- PAGE -->
+    <section class="page-section color">
+        <div class="container">
+            @if (Model.Codigo == 0)
+            {
+                <h2 class="section-title"><span>Deja el equipaje y viaja ligero</span></h2>
+                <div class="text-center">
+                    <h3>Tu reserva fue confirmada. <small><a href="~/Home/MisReservas">para ver tus reservas hace clic aqui.</a></small></h3>
+                </div>
+            }
+            else
+            {
+                <h2 class="section-title"><span>Un momento...</span></h2>
+                <div class="text-center">
+                    <h3>@Model.Mensaje</h3>
+                </div>
+            }
+        </div>
+    </section>
+    <!-- /PAGE -->
+
+</div>
+

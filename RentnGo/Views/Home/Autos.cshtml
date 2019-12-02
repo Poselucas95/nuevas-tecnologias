@@ -1,0 +1,60 @@
+﻿@model List<RentnGo.Common.Auto>
+@{
+    ViewBag.Title = "Autos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-area">
+    <!-- NOTA DE NADA QUE SEA UTIL -->
+    <!-- PAGE WITH SIDEBAR -->
+    <section class="page-section with-sidebar sub-page">
+        <div class="container">
+            <hr class="page-divider small" />
+            <h2 class="section-title"><span>AUTOS DISPONIBLES</span></h2>
+
+            <div class="row">
+                <!-- CONTENT -->
+                <div class="col-md-12 content car-listing" id="content">
+
+                    <!-- Lista de Vehiculos -->
+                    <!-- Vehiculo 1 -->
+                    @foreach (var auto in Model)
+                    {
+                        <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
+                            <div class="media">
+                                <a class="media-link" href="reservar.html?vehiculo=">
+                                    <img src="@auto.Foto" alt="" width="370" height="220" style="max-width: 370px; max-height: 220px" />
+                                </a>
+                            </div>
+                            <div class="caption">
+                                <h4 class="caption-title">
+                                    <a href="reservar.html?vehiculo=">@auto.Marca @auto.Modelo @auto.Anio</a>
+                                </h4>
+                                <h5 class="caption-title-sub">A partir de <strong>$@auto.PrecioPorDia</strong>/por dia</h5>
+                                <div class="caption-text">
+                                    @auto.Descripcion
+                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <td><i class="fa fa-car"></i> @auto.Anio</td>
+                                        <td><i class="fa fa-dashboard"></i> Nafta</td>
+                                        <td><i class="fa fa-cogs"></i> Auto </td>
+                                        <td><i class="fa fa-road"></i> @auto.Km</td>
+                                        <td class="buttons"><a class="btn btn-theme" href="~/Home/Reservar/@auto.Id">Reservar</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    }
+                    <!-- /Lista de Vehiculos -->
+
+                </div>
+
+                <!-- /CONTENT -->
+
+            </div>
+        </div>
+    </section>
+    <!-- /PAGE WITH SIDEBAR -->
+
+</div>

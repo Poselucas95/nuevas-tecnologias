@@ -1,0 +1,127 @@
+﻿@model RentnGo.Common.Auto
+@{
+    ViewBag.Title = "Reservar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ConfirmarReserva", "Home", new { ReturnUrl = "~/Home/ConfirmarReserva" }, FormMethod.Post, new { role = "form" }))
+{
+    <div class="content-area">
+
+        <!-- PAGE WITH SIDEBAR -->
+        <section class="page-section with-sidebar sub-page">
+            <div class="container">
+                <div class="row">
+                    <!-- CONTENT -->
+                    <div class="col-md-9 content" id="content">
+
+                        <h3 class="block-title alt"><i class="fa fa-angle-down"></i>Información del Vehiculo</h3>
+                        <div class="car-big-card alt">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="thumbnail no-border no-padding thumbnail-car-card clearfix">
+                                        <div class="item">
+                                            <img class="img-responsive" src="@Model.Foto" alt="" width="561" height="398" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="car-details">
+                                        <div class="list">
+                                            <ul>
+                                                <li class="title">
+                                                    <h2>@Model.Marca @Model.Modelo <span>@Model.Anio</span></h2>
+                                                </li>
+                                                <li>Combustible: Nafta</li>
+                                                <li>Kilometros: @Model.Km</li>
+                                                <li>Transmisión: Automatica</li>
+                                                <li>Capacidad: @Model.Asientos</li>
+                                                <li>Puertas: @Model.Puertas</li>
+                                                <li>Asistencia en ruta incluida</li>
+                                            </ul>
+                                        </div>
+                                        <div class="price">
+                                            <strong id="vPrecioActual">$@Model.PrecioPorDia</strong> <span id="porDia">por día</span>
+                                            <div style="display:none" id="hdnPrecioPorDia">@Model.PrecioPorDia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="page-divider half transparent" />
+
+                        <div class="overflowed reservation-now">
+                            <div class="checkbox pull-left">
+                                <input id="accept" type="checkbox" name="fd-name" title="Please accept" data-toggle="tooltip" checked>
+                                <label for="accept">Acepto los terminos, forma de pago y cargos ocultos del servicio.</label>
+                            </div>
+                            @*<a class="btn btn-theme pull-right btn-reservation-now" href="~/Home/ConfirmarReserva">Confirmar Reserva</a>*@
+                            <input type="submit" class="btn btn-theme pull-right btn-reservation-now" value="Confirmar Reserva" />
+                            @*<input type="submit" class="btn btn-theme pull-right btn-cancel btn-theme-dark" value="Cancelar" />*@
+                        </div>
+
+                    </div>
+                    <!-- /CONTENT -->
+                    <!-- SIDEBAR -->
+                    <aside class="col-md-3 sidebar" id="sidebar">
+                        <!-- widget detail reservation -->
+                        <div class="widget shadow widget-details-reservation">
+                            <h4 class="widget-title">Detalles de la Reserva</h4>
+                            <div class="widget-content">
+                                <br />
+                                <div class="row row-inputs">
+                                    <div class="container-fluid">
+                                        <div class="col-sm-13">
+                                            <div class="form-group has-icon has-label">
+                                                <label for="formSearchUpDate">FECHA DE RECOGIDA</label>
+                                                @Html.TextBoxFor(m => m.FechaInicio, new { @class = "form-control datepicker", placeholder = "DD/MM/AAAA", id = "formSearchUpDate" })
+                                                @*<input type="text" class="form-control datepicker" id="formSearchUpDate" placeholder="DD/MM/AAAA">*@
+                                                <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @Html.HiddenFor(m => m.Id)
+                                <div class="row row-inputs">
+                                    <div class="container-fluid">
+                                        <div class="col-sm-13">
+                                            <div class="form-group has-icon has-label">
+                                                <label for="formSearchOffDate">FECHA DE DEVOLUCION</label>
+                                                @Html.TextBoxFor(m => m.FechaFin, new { @class = "form-control datepicker", placeholder = "DD/MM/AAAA", id = "formSearchOffDate" })
+                                                @* <input type="text" class="form-control datepicker" id="formSearchOffDate" placeholder="DD/MM/AAAA">*@
+                                                <span class="form-control-icon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="button">
+                                    <a href="#" id="btnActualizar" class="btn btn-block btn-theme btn-theme-dark" style="display: none">Actualizar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /widget detail reservation -->
+                        <!-- widget helping center -->
+                        <div class="widget shadow widget-helping-center">
+                            <h4 class="widget-title">Centro de Ayuda</h4>
+                            <div class="widget-content">
+                                <h5 class="widget-title-sub">0800-123-RENT</h5>
+                            </div>
+                        </div>
+                        <!-- /widget helping center -->
+                    </aside>
+                    <!-- /SIDEBAR -->
+
+                </div>
+            </div>
+        </section>
+        <!-- /PAGE WITH SIDEBAR -->
+
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/Validaciones.js")
+}

@@ -1,0 +1,118 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentnGo | Autos para tus Stories</title>
+    <!-- Titulo e Icono de la pagina -->
+    <link rel="shortcut icon" href="~/img/favicon.ico">
+
+    <!-- CSS de Plugins -->
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="~/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/plugins/animate/animate.min.css" rel="stylesheet">
+    <link href="~/plugins/swiper/css/swiper.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="~/Content/theme.css" rel="stylesheet">
+
+    <!-- Librerias JS -->
+    <script src="~/plugins/modernizr.custom.js"></script>
+    
+
+</head>
+<body>
+    <header class="header fixed">
+        <div class="header-wrapper">
+            <div class="container">
+
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="@Url.Action("Index","Home")"><img src="~/img/logo-rentngo.png" alt="Rent N´Go" /></a>
+                </div>
+                <!-- /Logo -->
+                <!-- Mobile menu "toggle button" -->
+                <a href="#" class="menu-toggle btn btn-theme-transparent"><i class="fa fa-bars"></i></a>
+                <!-- /Mobile menu "toggle button" -->
+                <!-- Navegación -->
+                <nav class="navigation closed clearfix">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <!-- menu de navegación -->
+                            <a href="#" class="menu-toggle-close btn"><i class="fa fa-times"></i></a>
+                            <ul class="nav sf-menu">
+                                @if (Request.IsAuthenticated)
+                                {
+                                <li>
+                                    @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                </li>
+                                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                    @*<li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+                                    <li>@Html.ActionLink("Autos", "Autos", "Home")</li>
+                                    <li>@Html.ActionLink("Mis Reservas", "MisReservas", "Home")</li>
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <li><a href="javascript:document.getElementById('logoutForm').submit()">SALIR</a></li>
+                                    }
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                                    <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                                    @*<li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+                                }
+                            </ul>
+                            <!-- / menu de navegación -->
+                        </div>
+                    </div>
+                    <!-- Agregar Scroll Bar -->
+                    <div class="swiper-scrollbar"></div>
+                </nav>
+                <!-- /Navegación -->
+            </div>
+        </div>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <div class="footer-meta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="btn-row text-center">
+                                <a href="#" class="btn btn-theme btn-icon-left facebook"><i class="fa fa-facebook"></i>FACEBOOK</a>
+                                <a href="#" class="btn btn-theme btn-icon-left twitter"><i class="fa fa-twitter"></i>TWITTER</a>
+                                <a href="#" class="btn btn-theme btn-icon-left instagram"><i class="fa fa-instagram"></i>INSTAGRAM</a>
+                                <a href="#" class="btn btn-theme btn-icon-left linkedin"><i class="fa fa-linkedin"></i>LINKEDIN</a>
+                            </p>
+                            <div class="copyright">&copy; 2019 RentNGo — by ABL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="~/plugins/jquery.sticky.min.js"></script>
+    <script src="~/plugins/jquery.easing.min.js"></script>
+    <script src="~/plugins/jquery.smoothscroll.min.js"></script>
+    <script src="~/plugins/swiper/js/swiper.jquery.min.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/Validaciones.js"></script>
+
+    <!-- JS 2 -->
+    <script src="~/scripts/theme.js"></script>
+</body>
+</html>

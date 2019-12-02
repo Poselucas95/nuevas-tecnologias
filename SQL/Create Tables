@@ -1,0 +1,184 @@
+CREATE TABLE [dbo].[Autos]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Marca] NVARCHAR (256) NOT NULL, 
+    [Modelo] NVARCHAR(256) NOT NULL, 
+    [Anio] NVARCHAR(4) NOT NULL,
+    [PrecioPorDia] DECIMAL(18, 2) NOT NULL,
+    [Asientos] INT NOT NULL,
+    [Puertas] INT NOT NULL,
+    [Auxilio] BIT NOT NULL,
+    [Color] NVARCHAR(256) NOT NULL,
+    [Foto] NVARCHAR(500)
+)
+GO
+
+CREATE TABLE [dbo].[Usuarios]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+    [UserName] NVARCHAR (256) NOT NULL,
+	[Apellido] NVARCHAR (256) NOT NULL,
+	[Nombre] NVARCHAR (256) NOT NULL,
+	[Email] NVARCHAR (256) NOT NULL,
+	[Telefono] NVARCHAR (256) NOT NULL,
+	[Documento] NVARCHAR (256) NOT NULL,
+	[TipoDoc] INT NOT NULL,
+	[FechaNacimiento] DATETIME NOT NULL,
+	[Nacionalidad] NVARCHAR (256) NOT NULL,
+	[Domicilio] NVARCHAR (256) NOT NULL,
+	[Provincia] INT NOT NULL,
+	[Sexo] NVARCHAR (256) NOT NULL,
+	FOREIGN KEY ([UserName]) REFERENCES [dbo].[AspNetUsers] ([UserName]) ON DELETE CASCADE
+)
+GO
+
+CREATE TABLE [dbo].[Alquileres]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Inicio] DATETIME NOT NULL, 
+    [Fin] DATETIME NOT NULL, 
+    [IdAuto] INT NOT NULL, 
+	[Ts] DATETIME NOT NULL
+	FOREIGN KEY ([IdAuto]) REFERENCES [dbo].[Autos] ([Id]) ON DELETE CASCADE
+)
+GO
+
+CREATE TABLE [dbo].[AlquileresUsuario]
+(
+	[Id] INT NOT NULL PRIMARY KEY,
+	[IdUsuario] INT NOT NULL,
+	[IdAlquiler] INT NOT NULL,
+	FOREIGN KEY ([IdUsuario]) REFERENCES [dbo].[Usuarios] ([Id]) ON DELETE CASCADE,
+	FOREIGN KEY ([IdAlquiler]) REFERENCES [dbo].[Alquileres] ([Id]) ON DELETE CASCADE
+
+)
+GO
+
+CREATE PROCEDURE [dbo].[sp_add_alquiler]
+	@Inicio DATETIME,
+	@Fin DATETIME,
+	@IdAuto INT,
+	@IdUsuario INT
+AS
+BEGIN
+	DECLARE @MaxIdAlquiler int
+	SELECT @MaxIdAlquiler = MAX([Id]) + 1 FROM [dbo].[Alquileres]
+
+	DECLARE @MaxIdAlquilerUsuario int
+	SELECT @MaxIdAlquilerUsuario = MAX([Id]) + 1 FROM [dbo].[AlquileresUsuario]
+
+	INSERT INTO [dbo].[Alquileres]
+	([Id], [Inicio], [Fin], [IdAuto], [Ts]) values (@MaxIdAlquiler, @Inicio, @Fin, @IdAuto, GETDATE())
+
+	INSERT INTO [dbo].[AlquileresUsuario]
+	([Id], [IdUsuario], [IdAlquiler]) values (@MaxIdAlquilerUsuario, @IdUsuario, @MaxIdAlquiler)
+
+END
+GO
+
+CREATE PROCEDURE [dbo].[sp_get_alquileres]
+	@IdUsuario INT
+AS
+BEGIN
+	
+	SELECT a.Id, a.Inicio, a.Fin, a.IdAuto, a.Ts FROM Alquileres a
+	INNER JOIN AlquileresUsuario au ON a.Id = au.IdAlquiler
+	INNER JOIN Usuarios u ON u.Id = au.IdUsuario
+	WHERE u.Id = @IdUsuario
+
+	SELECT aut.Id, aut.Marca, aut.Modelo, aut.Anio, aut.PrecioPorDia, aut.Asientos, aut.Puertas, aut.Auxilio, aut.Color, aut.Foto FROM Alquileres a
+	INNER JOIN AlquileresUsuario au ON a.Id = au.IdAlquiler
+	INNER JOIN Usuarios u ON u.Id = au.IdUsuario
+	INNER JOIN Autos aut ON aut.Id = a.IdAuto
+	WHERE u.Id = @IdUsuario
+
+END
+GO
+
+CREATE PROCEDURE [dbo].[sp_get_auto]
+	@IdAuto int
+AS
+BEGIN
+	
+	SELECT Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto
+	FROM Autos
+	WHERE Id = @IdAuto
+
+END
+go
+
+CREATE PROCEDURE [dbo].[sp_get_alquileres_por_auto]
+	@IdAuto int
+AS
+BEGIN
+
+	SELECT a.Id, a.Inicio, a.Fin, a.IdAuto, a.Ts FROM Alquileres a
+	INNER JOIN AlquileresUsuario au ON a.Id = au.IdAlquiler
+	INNER JOIN Autos aut ON aut.Id = a.IdAuto
+	WHERE aut.Id = @IdAuto
+	ORDER BY a.Ts desc
+
+END
+go
+
+CREATE PROCEDURE [dbo].[sp_get_autos_por_cantidad]
+	@Cantidad int
+AS
+BEGIN
+	SELECT TOP (@Cantidad) Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto
+	FROM Autos
+	ORDER BY Id DESC
+END
+go
+
+CREATE PROCEDURE [dbo].[sp_add_usuario]
+	@UserName nvarchar(256),
+	@Apellido nvarchar(256),
+	@Nombre nvarchar(256),
+	@Email nvarchar(256),
+	@Telefono nvarchar(256),
+	@Documento nvarchar(256),
+	@TipoDoc INT,
+	@FechaNacimiento DATETIME,
+	@Nacionalidad nvarchar(256),
+	@Domicilio nvarchar(256),
+	@Provincia INT,
+	@Sexo nvarchar(256)
+AS
+BEGIN
+
+	DECLARE @MaxId int
+	SELECT @MaxId = MAX([Id]) + 1 FROM [dbo].[Usuarios]
+
+	INSERT INTO Usuarios
+	(Id, UserName, Apellido, Nombre, Email, Telefono, Documento, TipoDoc, FechaNacimiento, Nacionalidad, Domicilio, Provincia, Sexo)
+	VALUES
+	(@MaxId, @UserName, @Apellido, @Nombre, @Email, @Telefono, @Documento, @TipoDoc, @FechaNacimiento, @Nacionalidad, @Domicilio, @Provincia, @Sexo)
+
+END
+
+go
+
+
+
+/*
+INSERT INTO Autos
+(Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto)
+VALUES
+(1, 'Ford', 'Escort', '2002', 885, 5, 4, 1, 'Blanco', 'https://es.wikipedia.org/wiki/Archivo:Ford_Escort_MK4_front_20081215.jpg')
+
+INSERT INTO Autos
+(Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto)
+VALUES
+(2, 'Audi', 'TT', '2017', 1780, 2, 2, 1, 'Rojo', 'https://acs2.blob.core.windows.net/imgcatalogo/l/VA_0bbd3bdb38494e069fcc3ea3e9746c49.jpg')
+
+INSERT INTO Autos
+(Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto)
+VALUES
+(3, 'Lamborghini', 'Diablo', '2018', 4000, 2, 2, 0, 'Gris', 'https://cdn.bringatrailer.com/wp-content/uploads/2019/01/1999_lamborghini_diablo_1548187242cfcd2DSC00061-940x627.jpg')
+
+INSERT INTO Autos
+(Id, Marca, Modelo, Anio, PrecioPorDia, Asientos, Puertas, Auxilio, Color, Foto)
+VALUES
+(4, 'Renault', '12', '1990', 600, 5, 4, 1, 'Amarillo', 'http://www.autosdeculto.com.ar/wp-content/uploads/new-renault-12.jpg')
+*/

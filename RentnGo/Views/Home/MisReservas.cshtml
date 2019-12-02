@@ -1,0 +1,58 @@
+﻿@model List<RentnGo.Common.Auto>
+@{
+    ViewBag.Title = "MisReservas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-area">
+
+    <!-- PAGE -->
+    <section class="page-section color">
+        <div class="container">
+            <hr class="page-divider small" />
+            <h2 class="section-title"><span>Mis Reservas</span></h2>
+            <div class="col-md-12 content" id="content">
+                <!-- TRANSACCIONES -->
+                <div class="panel-group accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                    <!-- trx1 -->
+                    @foreach (RentnGo.Common.Auto auto in Model)
+                    {
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading1">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        <!-- MARCA MODELO DEL AUTO-->
+                                        <span class="dot"></span>@auto.Marca @auto.Modelo @auto.Anio
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="" role="tabpanel" aria-labelledby="heading1">
+                                <table class="table">
+                                    <tr>
+                                        <!-- DATA RESERVA-->
+                                        <td><i class=""></i></td>
+                                        <td><h5>RETIRO</h5><i class="fa fa-calendar"></i> @auto.FechaInicio</td>
+                                        <td><h5>DEVOLUCION</h5><i class="fa fa-calendar"></i> @auto.FechaFin</td>
+                                        <td>
+                                            <h5>TOTAL</h5><i class="fa fa-dollar"></i> @{
+                                                double valorTotal = (auto.FechaFin - auto.FechaInicio).TotalDays * auto.PrecioPorDia;
+                                                
+                                            } @valorTotal
+                                        </td>
+                                        <!-- /DATA RESERVA-->
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    }
+                    <!-- /trx1 -->
+                </div>
+                <!-- /FAQ -->
+
+            </div>
+
+        </div>
+    </section>
+    <!-- /PAGE -->
+
+</div>
+
